@@ -1,0 +1,40 @@
+name: Guard public copy
+
+on:
+  push:
+    paths:
+      - "automod/**"
+      - "r-amex-automod-*.yaml"
+      - "public/**"
+      - ".github/workflows/guard-public-copy.yml"
+  pull_request:
+    paths:
+      - "automod/**"
+      - "r-amex-automod-*.yaml"
+      - "public/**"
+      - ".github/workflows/guard-public-copy.yml"
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Block unpublished floors in public comment fields
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          banned = ('250', 'combined_subreddit_karma')
+          files = list(Path('automod').rglob('*.yaml')) + list(Path('.').glob('r-amex-automod-*.yaml'))
+          failed = []
+          for p in files:
+              for i, line in enumerate(p.read_text(encoding='utf-8').splitlines(), 1):
+                  s = line.strip()
+                  if s.startswith('comment:') or s.startswith('sticky_comment:'):
+                      if any(tok in line for tok in banned):
+                          failed.append(f'{p}:{i}:{s}')
+          if failed:
+              print('unpublished token in public comment field:')
+              print('\n'.join(failed))
+              raise SystemExit(1)
+          print('public comment fields clean', len(files), 'files')
+          PY
