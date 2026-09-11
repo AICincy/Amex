@@ -16,7 +16,7 @@ jobs:
   yaml-parse:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Install PyYAML
         run: python3 -m pip install --user pyyaml
       - name: Check current AutoMod draft
