@@ -1,1 +1,10 @@
 .env
+.env.*
+secrets/
+**/keys.env
+**/*unpublished-tokens*
+automod-canon-receipt.json
+exa-*.json
+*.pem
+*.key
+.DS_Store

@@ -1,0 +1,19 @@
+repo: AICincy/Amex
+host: grok
+community: r/amex
+current_automod: automod/current/r-amex-automod-0.1.3.5.yaml
+skills:
+  - aai-cognitive-interface
+  - reddit-automod-yaml
+  - reddit-owner-ops
+  - exa-firecrawl
+  - claim-source-auditor
+  - subreddit-rule-packet
+human_gates:
+  - AutoMod wiki paste
+  - Rules Hub paste
+  - Safety Filter inspection
+do_not_commit:
+  - unpublished token lists
+  - Exa or Firecrawl keys
+  - live wiki bytes unless fetched this run

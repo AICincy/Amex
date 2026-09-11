@@ -1,0 +1,38 @@
+name: Validate AutoMod YAML
+
+on:
+  push:
+    paths:
+      - "automod/current/**"
+      - "r-amex-automod-*.yaml"
+      - ".github/workflows/validate-automod.yml"
+  pull_request:
+    paths:
+      - "automod/current/**"
+      - "r-amex-automod-*.yaml"
+      - ".github/workflows/validate-automod.yml"
+
+jobs:
+  yaml-parse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install PyYAML
+        run: python3 -m pip install --user pyyaml
+      - name: Check current AutoMod draft
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import yaml
+          files = list(Path('automod/current').glob('*.yaml')) + list(Path('.').glob('r-amex-automod-*.yaml'))
+          if not files:
+              raise SystemExit('no current AutoMod files')
+          for p in files:
+              text = p.read_text(encoding='utf-8')
+              if text.split('---', 1)[0].strip():
+                  raise SystemExit(f'text before first --- in {p}')
+              if '(?i)' in text:
+                  raise SystemExit(f'illegal (?i) in {p}')
+              print('ok', p)
+          print('pass', len(files))
+          PY
