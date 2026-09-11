@@ -1,0 +1,33 @@
+name: Lint YAML
+on:
+  push:
+    paths:
+      - "**/*.yml"
+      - "**/*.yaml"
+      - ".github/workflows/lint-yaml.yml"
+  pull_request:
+    paths:
+      - "**/*.yml"
+      - "**/*.yaml"
+      - ".github/workflows/lint-yaml.yml"
+jobs:
+  parse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install PyYAML
+        run: python3 -m pip install --user pyyaml
+      - name: Parse every YAML file
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import yaml
+          files = [p for p in Path('.').rglob('*') if p.suffix in {'.yml', '.yaml'} and '.git' not in p.parts]
+          if not files:
+              raise SystemExit('no yaml files')
+          for p in files:
+              text = p.read_text(encoding='utf-8')
+              list(yaml.safe_load_all(text))
+              print('ok', p)
+          print('pass', len(files))
+          PY
