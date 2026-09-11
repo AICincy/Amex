@@ -1,0 +1,19 @@
+# Path labels for r/Amex operator PRs.
+# Names must match labels that already exist on the repo.
+
+automod:
+- automod/**/*
+- r-amex-automod-*
+
+ops:
+- ops/**/*
+
+documentation:
+- docs/**/*
+- '*.md'
+- public/**/*
+
+github_actions:
+- .github/workflows/**/*
+- .github/dependabot.yml
+- .github/labeler.yml
