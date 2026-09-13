@@ -4,7 +4,7 @@ current_automod_artifact: automod/current/r-amex-automod-0.1.3.5.yaml
 current_automod_version: "0.1.3.5"
 live_automod_version_reported: "0.1.3.5"
 human_tasks_complete: false
-human_gate: "Paste Rule 1 public copy, inspect Crowd Control"
+human_gate: "Rule 1 TEXT on next monthly thread post"
 current_referral_thread_title: unknown-this-host
 operators: []
 open_contradictions: []
@@ -13,11 +13,14 @@ closed_contradictions:
   - C3: "Closed in 0.1.3.4 draft. Rule 1 and 1e public copy say the participation check is monthly-thread referral links only."
   - C4: "Closed as inspect-only. Crowd Control is not the 1e floor."
 modmails_replied: false
-last_correction: "1e must not gate general posts or comments."
+last_correction: "2026-09-13. Header fixed. 1e advisory comment in current monthly thread. Rule 1 TEXT on next monthly thread post. Crowd Control 3-day trial started."
 notes:
   - "0.1.3.4 remains the last body revision"
   - "Operator recorded AutoMod wiki paste of 0.1.3.5 on 2026-09-11. Wiki bytes not independently fetched."
-  - "Rule 1 public copy paste and Crowd Control inspect still open"
+  - "2026-09-13 operator: monthly thread header paste is done"
+  - "2026-09-13 operator: advisory comment posted in the current monthly referral thread"
+  - "2026-09-13 operator: Rule 1 TEXT waits for the next monthly thread post"
+  - "2026-09-13 operator: Crowd Control 3-day trial started. Re-inspect on or after 2026-09-16."
   - "Numeric floors stay in author checks and action_reason only"
   - "combined_subreddit_karma remains in 1e only"
   - "Unpublished token values are not stored in this public file"

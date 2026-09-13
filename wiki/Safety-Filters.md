@@ -9,7 +9,7 @@ Recorded inspect on 2026-09-11:
 1. Posts On, comments On, Targeting Moderate, comments Collapse.
 2. Operator then set posts Off and comments Off.
 
-Draft rule: leave posts and comments Off unless a separate influx or abuse problem requires a filter.
+Recorded 2026-09-13: operator started a 3-day Crowd Control trial. Re-inspect on or after 2026-09-16.
 
 Crowd Control is not the 1e floor. Moderate filtering on posts and comments will hide people who are not yet well-known, including ordinary posts and comments outside the monthly thread.
 
