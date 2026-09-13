@@ -1,5 +1,21 @@
 {
-  "status": "PASS",
-  "finding_count": 0,
-  "findings": []
+  "status": "PASS_WITH_DOC_CONFLICTS",
+  "file": "automod/current/r-amex-automod-0.1.3.5.yaml",
+  "finding_count": 2,
+  "findings": [
+    {
+      "id": "G13",
+      "class": "stale-risk",
+      "severity": "low",
+      "detail": "Common Questions helper hardcodes /comments/1vm5hnj/. Current monthly thread not independently fetched."
+    },
+    {
+      "id": "G20",
+      "class": "overbroad",
+      "severity": "info",
+      "detail": "Bare DM/PM word rules remove comments that packet 1b would leave. Authorized YAML. No bump."
+    }
+  ],
+  "live_reddit_rules": "not-fetched-403",
+  "live_automod_wiki": "not-fetched"
 }

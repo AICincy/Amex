@@ -18,4 +18,6 @@ Referral links in this thread require prior participation in r/Amex. Ordinary po
 
 Not AutoMod. Inspect only.
 
-Crowd Control is not the 1e floor. Do not use it to block general posts or comments. Leave posts and comments Off unless a separate abuse problem requires a filter. Reputation is not a substitute for Rule 1e.
+Crowd Control is not the 1e floor. Do not use it as a substitute for Rule 1e.
+
+Operator 2026-09-13: 3-day Crowd Control trial in progress. Re-inspect on or after 2026-09-16.
