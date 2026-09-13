@@ -1,6 +1,7 @@
 name: Guard public copy
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - "automod/**"
@@ -23,6 +24,8 @@ jobs:
           from pathlib import Path
           banned = ('250', 'combined_subreddit_karma')
           files = list(Path('automod').rglob('*.yaml'))
+          if not files:
+              raise SystemExit('no AutoMod yaml')
           failed = []
           for p in files:
               for i, line in enumerate(p.read_text(encoding='utf-8').splitlines(), 1):

@@ -1,6 +1,7 @@
 name: Validate AutoMod YAML
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - "automod/current/**"
@@ -15,8 +16,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - name: Install PyYAML
-        run: python3 -m pip install --user pyyaml
       - name: Check current AutoMod draft
         run: |
           python3 - <<'PY'
@@ -26,10 +25,12 @@ jobs:
               raise SystemExit('no current AutoMod files')
           for p in files:
               text = p.read_text(encoding='utf-8')
+              if not text.startswith('---'):
+                  raise SystemExit(f'first line must be --- in {p}')
               if text.split('---', 1)[0].strip():
                   raise SystemExit(f'text before first --- in {p}')
-              if '(?i)' in text:
-                  raise SystemExit(f'illegal (?i) in {p}')
+              if '(?i)' in text or '(?-i)' in text:
+                  raise SystemExit(f'illegal inline case flag in {p}')
               print('ok', p)
           print('pass', len(files))
           PY

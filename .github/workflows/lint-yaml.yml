@@ -1,5 +1,7 @@
 name: Lint YAML
+
 on:
+  workflow_dispatch:
   push:
     paths:
       - ".github/**/*.yml"
@@ -10,6 +12,7 @@ on:
       - ".github/**/*.yml"
       - "ops/**/*.yaml"
       - ".github/workflows/lint-yaml.yml"
+
 jobs:
   parse:
     runs-on: ubuntu-latest
