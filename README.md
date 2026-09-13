@@ -1,25 +1,35 @@
-# r/Amex staff repo
+# r/Amex operator repo
 
-Working copies for [r/amex](https://www.reddit.com/r/amex/) moderation.
+Drafts for [r/amex](https://www.reddit.com/r/amex/) staff.
 
-This is not an app. Nothing deploys. Files here are drafts a moderator pastes into Reddit.
+This is not an app. Nothing deploys. A green GitHub check does not change live Reddit. A person pastes the files.
 
-Audience: r/Amex staff. If you can paste wiki, Rules Hub, or Safety Filters, this page is for you.
+- Staff: paste sources, file issues, inspect live behavior.
+- Owner (`AICincy`): authorize versions, merge YAML, record pastes in `ops/`.
 
-## Current state
+## Current recorded state
 
-| Surface | Recorded state | Paste source |
+| Surface | Recorded state | Source |
 | --- | --- | --- |
 | AutoMod wiki `config/automoderator` | Operator recorded **0.1.3.5** on 2026-09-11 | [`automod/current/r-amex-automod-0.1.3.5.yaml`](automod/current/r-amex-automod-0.1.3.5.yaml) |
-| Rule 1 body | Operator recorded 2026-09-10 | [`public/r-amex-rule-1-public-copy.md`](public/r-amex-rule-1-public-copy.md) |
+| Rule 1 | Operator recorded 2026-09-10 | [`public/r-amex-rule-1-public-copy.md`](public/r-amex-rule-1-public-copy.md) |
 | Removal reason `1e` | Operator recorded 2026-09-10 | same file |
 | Monthly referral thread header | Operator recorded 2026-09-10 | same file |
 | Crowd Control | Posts Off, comments Off | Safety Filters. Not YAML. |
 | Reputation | Inspect only | Safety Filters. Not YAML. |
 
-0.1.3.5 is a version stamp of 0.1.3.4. The last rule-body change was 0.1.3.4.
+0.1.3.5 is a version stamp of 0.1.3.4. Last rule-body change: 0.1.3.4.
 
-Live Reddit bytes are not fetched by this repo. The table is operator-reported.
+This repo does not fetch live Reddit bytes. The table is operator-reported. Open paste work is still listed in [`ops/amex-ops-state.public.yaml`](ops/amex-ops-state.public.yaml): Rule 1 public copy paste and Crowd Control inspect.
+
+## Staff daily use
+
+1. Need the live AutoMod draft? Open [`automod/current/`](automod/current/).
+2. Need Rule 1 / `1e` / thread header text? Open [`public/r-amex-rule-1-public-copy.md`](public/r-amex-rule-1-public-copy.md).
+3. See a live miss? Open an issue with the AutoMod or live-behavior template.
+4. Finished a paste? Open a paste-record issue or ask the owner to update `ops/`.
+
+Do not put unpublished numeric floors in `comment:`, stickies, Rule 1, reason `1e` public text, or the thread header.
 
 ## What AutoMod does
 
@@ -38,25 +48,25 @@ Ordinary posts and comments outside that thread are not removed by the 1e partic
 
 ## Human gates
 
-A person must do these. A push to GitHub does not change live r/amex.
+GitHub cannot do these. A moderator with wiki / Rules Hub / Safety Filters access must.
 
-1. Paste [`automod/current/r-amex-automod-0.1.3.5.yaml`](automod/current/r-amex-automod-0.1.3.5.yaml) into wiki `config/automoderator`.
-2. Paste Rule 1, reason `1e`, and the thread header from [`public/r-amex-rule-1-public-copy.md`](public/r-amex-rule-1-public-copy.md) if public wording changed.
+1. Paste the current YAML into wiki `config/automoderator`.
+2. Paste Rule 1, reason `1e`, and the thread header if public wording changed.
 3. Inspect Crowd Control. Leave posts and comments Off unless a separate abuse problem requires a filter.
 4. Record the paste in [`ops/amex-ops-state.public.yaml`](ops/amex-ops-state.public.yaml).
 
-Do not put unpublished numeric floors in `comment:`, stickies, Rule 1, reason `1e` public text, or the thread header.
+## Owner change path
 
-## Ship a YAML change
-
-1. Edit only the file in `automod/current/`.
+1. Edit only `automod/current/`.
 2. First line must be `---` with no text above it.
 3. Do not add `(?i)` or `(?-i)` to search checks.
-4. Prefer single-quoted regex. Do not wrap a regex field in a YAML `\|` block.
+4. Prefer single-quoted regex. Do not wrap a regex field in a YAML `|` block.
 5. Keep `combined_subreddit_karma` on the monthly-thread referral-URL comment rule only.
-6. Push to `main` or open a PR. Actions parse YAML and guard public copy.
-7. Complete the human gates above.
-8. Do not invent a version newer than the one staff authorized.
+6. Push to `main` or open a PR. Actions must pass.
+7. Complete the human gates.
+8. Do not invent a version newer than the one the owner authorized.
+
+Ruleset `protect-main`: no delete of `main`, no force-push. Direct commits by the owner are allowed.
 
 ## Layout
 
@@ -71,15 +81,18 @@ wiki/              staff handbook pages
 .github/           Actions and issue templates
 ```
 
+Handbook pages: [`wiki/Home.md`](wiki/Home.md).
+
+## Checks that run
+
+| Workflow | What it rejects |
+| --- | --- |
+| [Validate AutoMod YAML](.github/workflows/validate-automod.yml) | text before `---`, `(?i)` in current YAML |
+| [Guard public copy](.github/workflows/guard-public-copy.yml) | unpublished floors in `comment:` / `sticky_comment:` |
+| [Lint YAML](.github/workflows/lint-yaml.yml) | broken GitHub or ops YAML |
+
 ## Do not commit
 
 - `.env`, Exa keys, Firecrawl keys
 - unpublished-tokens lists
 - live wiki dumps unless fetched that day
-
-## Checks
-
-- [Validate AutoMod YAML](.github/workflows/validate-automod.yml)
-- [Guard public copy](.github/workflows/guard-public-copy.yml)
-
-Ruleset `protect-main`: no delete of `main`, no force-push. Direct commits are allowed.

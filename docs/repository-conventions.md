@@ -2,7 +2,7 @@
 
 ## Authority
 
-1. Latest staff correction
+1. Latest owner correction
 2. Current file in `automod/current`
 3. This-run official AutoMod fetch
 4. History notes under `automod/history`
@@ -10,7 +10,7 @@
 
 ## Versioning
 
-Bump the filename when staff authorize a new AutoMod draft. Do not invent a version ahead of authorization.
+Bump the filename when the owner authorizes a new AutoMod draft. Do not invent a version ahead of authorization.
 
 ## Public vs unpublished
 

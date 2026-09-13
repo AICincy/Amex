@@ -4,13 +4,11 @@ on:
   push:
     paths:
       - "automod/**"
-      - "r-amex-automod-*.yaml"
       - "public/**"
       - ".github/workflows/guard-public-copy.yml"
   pull_request:
     paths:
       - "automod/**"
-      - "r-amex-automod-*.yaml"
       - "public/**"
       - ".github/workflows/guard-public-copy.yml"
 
@@ -24,7 +22,7 @@ jobs:
           python3 - <<'PY'
           from pathlib import Path
           banned = ('250', 'combined_subreddit_karma')
-          files = list(Path('automod').rglob('*.yaml')) + list(Path('.').glob('r-amex-automod-*.yaml'))
+          files = list(Path('automod').rglob('*.yaml'))
           failed = []
           for p in files:
               for i, line in enumerate(p.read_text(encoding='utf-8').splitlines(), 1):

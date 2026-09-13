@@ -1,8 +1,8 @@
-# r/Amex operator wiki
+# r/Amex staff handbook
 
 Technical handbook for [AICincy/Amex](https://github.com/AICincy/Amex) and [r/amex](https://www.reddit.com/r/amex/).
 
-This repository is an operator hub. It is not an application. Nothing deploys. Files here are drafts a moderator pastes into Reddit.
+This repository is an operator hub. It is not an application. Files here are drafts a moderator pastes into Reddit.
 
 ## Recorded live state
 
@@ -24,8 +24,6 @@ This repository is an operator hub. It is not an application. Nothing deploys. F
 - [Human gates](Human-gates.md)
 - [Repository layout](Repository-layout.md)
 - [Workflows](Workflows.md)
-
-GitHub Wiki URL after the first page publish: https://github.com/AICincy/Amex/wiki
 
 ## Hard rules
 
