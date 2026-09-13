@@ -12,15 +12,15 @@ This is not an app. Nothing deploys. A green GitHub check does not change live R
 | Surface | Recorded state | Source |
 | --- | --- | --- |
 | AutoMod wiki `config/automoderator` | Operator recorded **0.1.3.5** on 2026-09-11 | [`automod/current/r-amex-automod-0.1.3.5.yaml`](automod/current/r-amex-automod-0.1.3.5.yaml) |
-| Rule 1 | Operator recorded 2026-09-10 | [`public/r-amex-rule-1-public-copy.md`](public/r-amex-rule-1-public-copy.md) |
-| Removal reason `1e` | Operator recorded 2026-09-10 | same file |
-| Monthly referral thread header | Operator recorded 2026-09-10 | same file |
-| Crowd Control | Posts Off, comments Off | Safety Filters. Not YAML. |
+| Rule 1 TEXT | Waits for next monthly thread post | [`public/r-amex-rule-1-public-copy.md`](public/r-amex-rule-1-public-copy.md) |
+| Removal reason `1e` | Advisory comment posted in current monthly thread 2026-09-13 | same file |
+| Monthly referral thread header | Operator recorded fixed 2026-09-13 | same file |
+| Crowd Control | 3-day trial started 2026-09-13. Re-inspect 2026-09-16. | Safety Filters. Not YAML. |
 | Reputation | Inspect only | Safety Filters. Not YAML. |
 
 0.1.3.5 is a version stamp of 0.1.3.4. Last rule-body change: 0.1.3.4.
 
-This repo does not fetch live Reddit bytes. The table is operator-reported. Open paste work is still listed in [`ops/amex-ops-state.public.yaml`](ops/amex-ops-state.public.yaml): Rule 1 public copy paste and Crowd Control inspect.
+This repo does not fetch live Reddit bytes. The table is operator-reported. Remaining gate: Rule 1 TEXT on the next monthly thread post. Crowd Control trial ends 2026-09-16.
 
 ## Staff daily use
 
@@ -51,9 +51,9 @@ Ordinary posts and comments outside that thread are not removed by the 1e partic
 GitHub cannot do these. A moderator with wiki / Rules Hub / Safety Filters access must.
 
 1. Paste the current YAML into wiki `config/automoderator`.
-2. Paste Rule 1, reason `1e`, and the thread header if public wording changed.
-3. Inspect Crowd Control. Leave posts and comments Off unless a separate abuse problem requires a filter.
-4. Record the paste in [`ops/amex-ops-state.public.yaml`](ops/amex-ops-state.public.yaml).
+2. Paste Rule 1 TEXT on the next monthly thread cycle.
+3. Re-inspect Crowd Control when the 3-day trial ends.
+4. Record the result in [`ops/amex-ops-state.public.yaml`](ops/amex-ops-state.public.yaml).
 
 ## Owner change path
 
