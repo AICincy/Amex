@@ -4,12 +4,10 @@ on:
   push:
     paths:
       - "automod/current/**"
-      - "r-amex-automod-*.yaml"
       - ".github/workflows/validate-automod.yml"
   pull_request:
     paths:
       - "automod/current/**"
-      - "r-amex-automod-*.yaml"
       - ".github/workflows/validate-automod.yml"
 
 jobs:
@@ -23,8 +21,7 @@ jobs:
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          import yaml
-          files = list(Path('automod/current').glob('*.yaml')) + list(Path('.').glob('r-amex-automod-*.yaml'))
+          files = list(Path('automod/current').glob('*.yaml'))
           if not files:
               raise SystemExit('no current AutoMod files')
           for p in files:

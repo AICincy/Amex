@@ -1,9 +1,8 @@
-# Path labels for r/Amex operator PRs.
+# Path labels for r/Amex staff PRs.
 # Names must match labels that already exist on the repo.
 
 automod:
 - automod/**/*
-- r-amex-automod-*
 
 ops:
 - ops/**/*
@@ -12,6 +11,7 @@ documentation:
 - docs/**/*
 - '*.md'
 - public/**/*
+- wiki/**/*
 
 github_actions:
 - .github/workflows/**/*

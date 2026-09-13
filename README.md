@@ -1,91 +1,85 @@
-# Amex
+# r/Amex staff repo
 
-Working copy for [r/amex](https://www.reddit.com/r/amex/) AutoMod, public Rule 1 text, and operator notes.
+Working copies for [r/amex](https://www.reddit.com/r/amex/) moderation.
 
-This is not an app. There is nothing to deploy. The files here are the drafts a moderator pastes into Reddit.
+This is not an app. Nothing deploys. Files here are drafts a moderator pastes into Reddit.
 
-## Status
+Audience: r/Amex staff. If you can paste wiki, Rules Hub, or Safety Filters, this page is for you.
 
-| Surface | Recorded state |
-| --- | --- |
-| AutoMod wiki | Operator recorded paste of **0.1.3.5** on 2026-09-11. This repo does not fetch live wiki bytes. |
-| Rule 1 / 1e public copy | Operator recorded paste on 2026-09-10. |
-| Crowd Control | Inspected On, then operator set posts Off and comments Off. |
-| Current YAML | [`automod/current/r-amex-automod-0.1.3.5.yaml`](automod/current/r-amex-automod-0.1.3.5.yaml) |
+## Current state
 
-0.1.3.5 is a version stamp of 0.1.3.4. The last body change was 0.1.3.4.
+| Surface | Recorded state | Paste source |
+| --- | --- | --- |
+| AutoMod wiki `config/automoderator` | Operator recorded **0.1.3.5** on 2026-09-11 | [`automod/current/r-amex-automod-0.1.3.5.yaml`](automod/current/r-amex-automod-0.1.3.5.yaml) |
+| Rule 1 body | Operator recorded 2026-09-10 | [`public/r-amex-rule-1-public-copy.md`](public/r-amex-rule-1-public-copy.md) |
+| Removal reason `1e` | Operator recorded 2026-09-10 | same file |
+| Monthly referral thread header | Operator recorded 2026-09-10 | same file |
+| Crowd Control | Posts Off, comments Off | Safety Filters. Not YAML. |
+| Reputation | Inspect only | Safety Filters. Not YAML. |
 
-## What AutoMod does here
+0.1.3.5 is a version stamp of 0.1.3.4. The last rule-body change was 0.1.3.4.
 
-The live config is a short stack of rules for a referral-heavy card subreddit:
+Live Reddit bytes are not fetched by this repo. The table is operator-reported.
 
-- Hold obvious referral dumps and card-name referral titles outside the monthly thread.
-- Hold the monthly thread itself if the title is not a monthly referral thread title.
-- Gate **referral-link comments in that monthly thread only**. Ordinary posts and comments elsewhere are not removed by that check.
-- Filter common scams, account-selling, and a few other abuse patterns.
+## What AutoMod does
 
-The monthly-thread title match is:
+- Remove referral and affiliate links outside the monthly referral thread.
+- Gate referral-URL comments **inside that thread only** when the author lacks sufficient r/Amex participation.
+- Remove common abuse: email addresses, likely card numbers, manufactured-spending mentions, DM/PM solicitation, social links outside the monthly thread.
+- Leave helper comments on a few FAQ titles. Those rules do not remove.
+
+Monthly-thread title match:
 
 ```text
 monthly.{0,80}referral.{0,30}thread
 ```
 
-Crowd Control and Reputation are Reddit Safety Filters. They are not AutoMod and they are not stored in the YAML.
+Ordinary posts and comments outside that thread are not removed by the 1e participation check.
 
-## Public vs unpublished
+## Human gates
 
-Public comment text, Rule 1, removal reason 1e, and the monthly-thread header must not include unpublished numeric floors.
+A person must do these. A push to GitHub does not change live r/amex.
 
-`combined_subreddit_karma` is not a sitewide post or comment gate. It belongs on monthly-thread referral-URL comments only.
+1. Paste [`automod/current/r-amex-automod-0.1.3.5.yaml`](automod/current/r-amex-automod-0.1.3.5.yaml) into wiki `config/automoderator`.
+2. Paste Rule 1, reason `1e`, and the thread header from [`public/r-amex-rule-1-public-copy.md`](public/r-amex-rule-1-public-copy.md) if public wording changed.
+3. Inspect Crowd Control. Leave posts and comments Off unless a separate abuse problem requires a filter.
+4. Record the paste in [`ops/amex-ops-state.public.yaml`](ops/amex-ops-state.public.yaml).
 
-Paste these three public blocks from [`public/r-amex-rule-1-public-copy.md`](public/r-amex-rule-1-public-copy.md):
+Do not put unpublished numeric floors in `comment:`, stickies, Rule 1, reason `1e` public text, or the thread header.
 
-1. Rule 1 body in Rules Hub
-2. Removal reason `1e`
-3. Addendum on the current monthly referral thread
+## Ship a YAML change
 
-## How to ship a new AutoMod version
+1. Edit only the file in `automod/current/`.
+2. First line must be `---` with no text above it.
+3. Do not add `(?i)` or `(?-i)` to search checks.
+4. Prefer single-quoted regex. Do not wrap a regex field in a YAML `\|` block.
+5. Keep `combined_subreddit_karma` on the monthly-thread referral-URL comment rule only.
+6. Push to `main` or open a PR. Actions parse YAML and guard public copy.
+7. Complete the human gates above.
+8. Do not invent a version newer than the one staff authorized.
 
-1. Edit or add a file under `automod/`.
-2. Keep the first line `---` with no text above it.
-3. Do not add `(?i)` to search checks. Official search checks are already case-insensitive.
-4. Prefer single-quoted regex. Do not wrap a regex field in a YAML `|` block.
-5. Push. GitHub Actions parses the YAML on `main` and on pull requests.
-6. A person pastes the file into `r/amex` wiki `config/automoderator`.
-7. A person pastes Rule 1 / 1e if the public wording changed.
-8. A person inspects Crowd Control. Do not encode that toggle in YAML.
-
-Wiki paste is always a human gate.
-
-## Repository map
+## Layout
 
 ```text
-automod/current/     file to paste
-automod/history/     prior versions (index only unless the YAML is copied in)
-audits/              changelogs and auditor summaries
-public/              Rule 1 and 1e text safe for Reddit UI
-ops/                 redacted operator state
-docs/                conventions
-.github/             Actions, Dependabot, issue templates
+automod/current/   file to paste into AutoMod
+automod/history/   index of prior versions
+public/            Rule 1, 1e, and thread header
+ops/               redacted operator state
+audits/            changelog and auditor summary
+docs/              repo conventions
+wiki/              staff handbook pages
+.github/           Actions and issue templates
 ```
 
-Root copies of the current YAML exist for convenience. Prefer `automod/current/`.
+## Do not commit
 
-## Checks that stay in force
+- `.env`, Exa keys, Firecrawl keys
+- unpublished-tokens lists
+- live wiki dumps unless fetched that day
 
-- No `(?i)` and no `(?-i)` on search fields.
-- Title match stays `monthly.{0,80}referral.{0,30}thread` unless a later version is authorized.
-- Do not commit `.env`, Exa keys, Firecrawl keys, or the unpublished-tokens list.
-- Do not invent a version past the one the operator authorized.
+## Checks
 
-## GitHub setup already applied
+- [Validate AutoMod YAML](.github/workflows/validate-automod.yml)
+- [Guard public copy](.github/workflows/guard-public-copy.yml)
 
-- Workflow: [Validate AutoMod YAML](.github/workflows/validate-automod.yml)
-- Dependabot watches GitHub Actions only
-- Ruleset `protect-main`: no delete of `main`, no force-push. Direct commits are still allowed.
-
-Topics, Pages, and secret scanning are Settings UI. This host cannot write those fields.
-
-## Owner
-
-[AICincy](https://github.com/AICincy) operates this copy for r/amex.
+Ruleset `protect-main`: no delete of `main`, no force-push. Direct commits are allowed.

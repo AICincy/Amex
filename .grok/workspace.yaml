@@ -2,13 +2,7 @@ repo: AICincy/Amex
 host: grok
 community: r/amex
 current_automod: automod/current/r-amex-automod-0.1.3.5.yaml
-skills:
-  - aai-cognitive-interface
-  - reddit-automod-yaml
-  - reddit-owner-ops
-  - exa-firecrawl
-  - claim-source-auditor
-  - subreddit-rule-packet
+audience: r/Amex staff
 human_gates:
   - AutoMod wiki paste
   - Rules Hub paste

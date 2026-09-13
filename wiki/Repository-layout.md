@@ -3,18 +3,17 @@
 Repo: [AICincy/Amex](https://github.com/AICincy/Amex)
 
 ```text
-automod/current/     file to paste
-automod/history/     prior versions (index unless YAML is copied in)
-audits/              changelogs and auditor summaries
-public/              Rule 1 and 1e text safe for Reddit UI
-ops/                 redacted operator state
-docs/                conventions
-wiki/                source copy of this handbook
-.github/             Actions, Dependabot, issue templates
-.grok/               local Grok workspace pointer
+automod/current/   file to paste into AutoMod
+automod/history/   index of prior versions
+audits/            changelog and auditor summary
+public/            Rule 1, 1e, and thread header
+ops/               redacted operator state
+docs/              conventions
+wiki/              staff handbook
+.github/           Actions and issue templates
 ```
 
-Root copies of the current YAML exist for convenience. Prefer `automod/current/`.
+There is no root YAML copy. Use `automod/current/`.
 
 ## Public vs unpublished
 
@@ -25,13 +24,4 @@ The public repo may contain AutoMod YAML. It must not contain:
 - the unpublished-tokens list
 - numeric floors in `comment:`, stickies, or packet text
 
-`ops/amex-ops-state.public.yaml` is the redacted operator state. Local host state may list unpublished token names. Do not copy those values into this wiki.
-
-## Branch protection
-
-Ruleset `protect-main` is active:
-
-- no delete of `main`
-- no force-push
-
-Direct commits to `main` are still allowed. This is a solo operator repo.
+`ops/amex-ops-state.public.yaml` is the redacted operator state.
