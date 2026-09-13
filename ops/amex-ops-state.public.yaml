@@ -3,11 +3,17 @@ live: true
 current_automod_artifact: automod/current/r-amex-automod-0.1.3.5.yaml
 current_automod_version: "0.1.3.5"
 live_automod_version_reported: "0.1.3.5"
+live_fetch_route: arctic-shift.photon-reddit.com
+live_fetch_at: "2026-09-13T22:36:00Z"
 human_tasks_complete: false
-human_gate: "Rule 1 TEXT on next monthly thread post"
-current_referral_thread_title: unknown-this-host
+human_gate: "Rule 1 TEXT on next monthly thread post; Crowd Control re-inspect 2026-09-16"
+current_referral_thread_title: Monthly Amex Referral Thread
+current_referral_thread: "https://www.reddit.com/r/amex/comments/1w4244u/monthly_amex_referral_thread/"
+current_common_questions_thread: "https://www.reddit.com/r/amex/comments/1we44e6/monthly_common_questions_advice_thread/"
 operators: []
-open_contradictions: []
+open_contradictions:
+  - L1: "AutoMod helper still points at August Common Questions 1vm5hnj. Live thread is 1we44e6."
+  - L2: "September referral OP body does not contain the public header addendum. Advisory is a Cannabun comment in 1w4244u."
 closed_contradictions:
   - C1: "Closed 2026-09-11. Tight monthly referral thread title match in 0.1.3.3 and later."
   - C3: "Closed in 0.1.3.4 draft. Rule 1 and 1e public copy say the participation check is monthly-thread referral links only."
@@ -15,12 +21,8 @@ closed_contradictions:
 modmails_replied: false
 last_correction: "2026-09-13. Header fixed. 1e advisory comment in current monthly thread. Rule 1 TEXT on next monthly thread post. Crowd Control 3-day trial started."
 notes:
-  - "0.1.3.4 remains the last body revision"
-  - "Operator recorded AutoMod wiki paste of 0.1.3.5 on 2026-09-11. Wiki bytes not independently fetched."
-  - "2026-09-13 operator: monthly thread header paste is done"
-  - "2026-09-13 operator: advisory comment posted in the current monthly referral thread"
-  - "2026-09-13 operator: Rule 1 TEXT waits for the next monthly thread post"
-  - "2026-09-13 operator: Crowd Control 3-day trial started. Re-inspect on or after 2026-09-16."
+  - "Firecrawl and Dify 403 on reddit.com. Live listing used Arctic Shift."
+  - "Live 1e AutoMod comments on 1w4244u match the 0.1.3.5 comment text."
+  - "Title Monthly Amex Referral Thread matches monthly.{0,80}referral.{0,30}thread"
   - "Numeric floors stay in author checks and action_reason only"
-  - "combined_subreddit_karma remains in 1e only"
   - "Unpublished token values are not stored in this public file"
