@@ -1,0 +1,19 @@
+interface:
+  display_name: Claim Source Auditor
+  short_description: Map claims to source evidence precisely
+  default_prompt: Use $claim-source-auditor to audit this draft against the supplied
+    source files.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - codex
+  allow_implicit_invocation: true
+# Governor: aai-cognitive-interface. This skill is subordinate.
+# Implicit invocation is a host request, not activation proof.
+host:
+  governor: aai-cognitive-interface
+  persist_path: C:\\Users\\jared\\.codex\\skills\\claim-source-auditor
+  validator: C:\\Users\\jared\\.codex\\skills\\aai-cognitive-interface\\scripts\\aai_runtime_gate.py
+  coordination: active-codex-turn-only
+# Host metadata is a local binding request, not proof of activation or installation.

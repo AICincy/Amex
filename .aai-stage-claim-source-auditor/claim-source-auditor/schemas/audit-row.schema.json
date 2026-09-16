@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "csa-audit-row",
+  "title": "Claim source audit row",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["claim_id", "claim_text", "status", "basis_note"],
+  "properties": {
+    "claim_id": {"type": "string", "minLength": 1},
+    "claim_text": {"type": "string", "minLength": 1},
+    "status": {
+      "enum": [
+        "verified",
+        "verified in broader bundle",
+        "conflicting",
+        "not found in searched sources",
+        "manual review needed"
+      ]
+    },
+    "source_file": {"type": ["string", "null"]},
+    "source_locator": {"type": ["string", "null"]},
+    "source_excerpt": {"type": ["string", "null"]},
+    "basis_note": {"type": "string", "minLength": 1},
+    "remediation_note": {"type": ["string", "null"]}
+  }
+}
