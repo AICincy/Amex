@@ -1,0 +1,13 @@
+# Copy outside the skill. Fill from live Reddit only.
+
+subreddit: amex
+live: false
+current_automod_artifact: ""
+current_automod_version: ""
+current_referral_thread_title: ""
+current_referral_thread_id: ""
+unpublished_public_tokens: []
+operators: []
+open_contradictions: []
+modmails_replied: false
+last_correction: ""

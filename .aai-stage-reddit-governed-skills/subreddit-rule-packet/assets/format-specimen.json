@@ -1,0 +1,24 @@
+{
+  "subreddit": "examplecommunity",
+  "enforcement": "Moderators enforce these rules using the available community tools.",
+  "community_description": "Members report concerns. Moderators review reported content.",
+  "rules": [
+    {
+      "kind": "conduct",
+      "short_name": "Be civil",
+      "description": "Keep discussion civil and do not harass other members.",
+      "violation_reasons": [
+        {"code": "1a", "text": "Personal attacks are not allowed."},
+        {"code": "1b", "text": "Harassment is not allowed."}
+      ]
+    },
+    {
+      "kind": "spam",
+      "short_name": "No spam",
+      "description": "Do not post spam or repeated promotional material.",
+      "violation_reasons": [
+        {"code": "2a", "text": "Spam is not allowed."}
+      ]
+    }
+  ]
+}

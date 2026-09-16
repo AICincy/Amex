@@ -1,0 +1,20 @@
+interface:
+  display_name: Reddit Owner Ops
+  short_description: Subreddit owner operations under AAI
+  default_prompt: Governor is $aai-cognitive-interface. Use $reddit-owner-ops
+    as a subordinate. Draft or check AutoMod, queues, mail, people actions,
+    cadence, settings, or team permissions against live sources. Execute
+    in-scope work until a human Reddit write or an exact blocker. Do not
+    self-govern.
+policy:
+  products:
+  - codex
+  allow_implicit_invocation: true
+host:
+  governor: aai-cognitive-interface
+  persist_path: C:\\Users\\jared\\.codex\\skills\\reddit-owner-ops
+  validator: C:\\Users\\jared\\.codex\\skills\\aai-cognitive-interface\\scripts\\aai_runtime_gate.py
+  coordination: active-codex-turn-only
+# Governor: aai-cognitive-interface. This skill is subordinate.
+# Host metadata is a local binding request, not proof of activation or installation.
+# Implicit invocation is a host request, not activation proof.

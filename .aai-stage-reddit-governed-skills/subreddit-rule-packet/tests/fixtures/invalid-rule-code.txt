@@ -1,0 +1,14 @@
+ENFORCEMENT
+Moderators enforce these rules.
+
+COMMUNITY DESCRIPTION
+Members report concerns.
+
+RULE 1 TITLE
+Be civil
+
+RULE 1 TEXT
+Keep discussion civil.
+
+RULE 1 REMOVAL REASONS
+2a. Wrong rule code.

@@ -1,0 +1,24 @@
+ENFORCEMENT
+Moderators enforce these rules using the available community tools.
+
+COMMUNITY DESCRIPTION
+Members report concerns. Moderators review reported content.
+
+RULE 1 TITLE
+Be civil
+
+RULE 1 TEXT
+Keep discussion civil and do not harass other members.
+
+RULE 1 REMOVAL REASONS
+1a. Personal attacks are not allowed.
+1b. Harassment is not allowed.
+
+RULE 2 TITLE
+No spam
+
+RULE 2 TEXT
+Do not post spam or repeated promotional material.
+
+RULE 2 REMOVAL REASONS
+2a. Spam is not allowed.

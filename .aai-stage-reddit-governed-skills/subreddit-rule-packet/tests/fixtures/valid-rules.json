@@ -1,0 +1,24 @@
+{
+  "subreddit": "examplecommunity",
+  "enforcement": "Moderators enforce these rules.",
+  "community_description": "Members report concerns.",
+  "rules": [
+    {
+      "kind": "conduct",
+      "short_name": "Be civil",
+      "description": "Keep discussion civil.",
+      "violation_reasons": [
+        {"code": "1a", "text": "Personal attacks are not allowed"},
+        {"code": "1b", "text": "Harassment is not allowed"}
+      ]
+    },
+    {
+      "kind": "spam",
+      "short_name": "No spam",
+      "description": "Do not post spam.",
+      "violation_reasons": [
+        {"code": "2a", "text": "Spam is not allowed"}
+      ]
+    }
+  ]
+}

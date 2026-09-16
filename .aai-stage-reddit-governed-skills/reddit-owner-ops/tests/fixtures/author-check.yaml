@@ -1,0 +1,5 @@
+---
+type: submission
+author:
+  combined_subreddit_karma: '< 42'
+action: filter

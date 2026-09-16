@@ -1,0 +1,4 @@
+---
+type: submission
+title (regex, includes): 'referral'
+action: filter

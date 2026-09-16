@@ -1,0 +1,17 @@
+interface:
+  display_name: Subreddit Rule Packet
+  short_description: Moderator-loadable subreddit rules in the accepted txt format
+  default_prompt: Use $subreddit-rule-packet to write or revise this community
+    rule packet in the accepted load format with coded removal reasons.
+policy:
+  products:
+  - codex
+  allow_implicit_invocation: true
+host:
+  governor: aai-cognitive-interface
+  persist_path: C:\\Users\\jared\\.codex\\skills\\subreddit-rule-packet
+  validator: C:\\Users\\jared\\.codex\\skills\\aai-cognitive-interface\\scripts\\aai_runtime_gate.py
+  coordination: active-codex-turn-only
+# Governor: aai-cognitive-interface. This skill is subordinate.
+# Host metadata is a local binding request, not proof of activation or installation.
+# Implicit invocation is a host request, not activation proof.

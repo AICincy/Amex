@@ -1,0 +1,18 @@
+interface:
+  display_name: Reddit AutoMod YAML
+  short_description: Source-backed AutoModerator YAML audit and remediation
+  default_prompt: Use $reddit-automod-yaml under AAI to audit the named YAML
+    against current official sources, preserve unresolved findings, and keep
+    all Reddit publication as a human gate.
+policy:
+  products:
+  - codex
+  allow_implicit_invocation: true
+host:
+  governor: aai-cognitive-interface
+  persist_path: C:\\Users\\jared\\.codex\\skills\\reddit-automod-yaml
+  validator: C:\\Users\\jared\\.codex\\skills\\aai-cognitive-interface\\scripts\\aai_runtime_gate.py
+  coordination: active-codex-turn-only
+# Governor: aai-cognitive-interface. This skill is subordinate.
+# Host metadata is a local binding request, not proof of activation or installation.
+# Implicit invocation is a host request, not activation proof.
