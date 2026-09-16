@@ -1,0 +1,17 @@
+interface:
+  display_name: AAI Cognitive Interface
+  short_description: Codex-local AuDHD custody and execution overlay
+  default_prompt: Use $aai-cognitive-interface as the governing state, execution,
+    verification, and communication layer for this task.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  allow_implicit_invocation: true
+  products:
+  - codex
+host:
+  persist_path: C:\\Users\\jared\\.codex\\skills\\aai-cognitive-interface
+  validator: C:\\Users\\jared\\.codex\\skills\\.system\\skill-creator\\scripts\\quick_validate.py
+  family: 0.2.1-codex
+# Host notes: references/host-binding.md. This metadata does not claim ChatGPT activation.
+# allow_implicit_invocation is a request, not proof of activation.

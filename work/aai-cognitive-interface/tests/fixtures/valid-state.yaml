@@ -1,0 +1,20 @@
+objective: Remediate AAI package gaps
+request_class: BUILD
+authorized_scope: Repair this skill tree and run static checks
+constraints:
+  - Do not claim INSTALLED
+  - No em or en dashes in SKILL.md
+active_threads:
+  - T1 Package identity
+  - T2 Gate required files
+  - T3 State schema
+next_action: Run package gate on aai-cognitive-interface
+completion_evidence: gate JSON status PASS
+human_gate: null
+takeover: false
+artifact_targets:
+  - C:/temp/aai-cognitive-interface
+status: ACTIVE
+missing_dependencies:
+  - personal-context
+  - trusted-controller

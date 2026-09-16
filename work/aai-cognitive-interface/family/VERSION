@@ -1,0 +1,6 @@
+0.2.1-codex-2026-09-16
+source: local Codex package
+governor: aai-cognitive-interface
+claimable-status: STATIC-PASS-after-gate
+e4-probe: recorded
+forbidden-unattested: RUNTIME-SMOKE-PASS RUNTIME-VERIFIED ADVERSARIAL-PASS

@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "aai-evidence-ledger",
+  "title": "AAI evidence ledger",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "DRAFTED": {"$ref": "#/$defs/drafted"},
+    "STATIC-PASS": {"$ref": "#/$defs/static_pass"},
+    "SAVED": {"$ref": "#/$defs/controller_only"},
+    "INSTALLED": {"$ref": "#/$defs/controller_only"},
+    "RUNTIME-SMOKE-PASS": {"$ref": "#/$defs/controller_only"},
+    "RUNTIME-VERIFIED": {"$ref": "#/$defs/controller_only"},
+    "ADVERSARIAL-PASS": {"$ref": "#/$defs/controller_only"}
+  },
+  "$defs": {
+    "base": {
+      "type": "object",
+      "required": ["current_run", "evidence"],
+      "properties": {
+        "current_run": {"const": true},
+        "evidence": {
+          "type": "object",
+          "required": ["kind", "source", "detail"],
+          "properties": {
+            "kind": {"type": "string", "minLength": 1},
+            "source": {"type": "string", "minLength": 1},
+            "detail": {"type": "string", "minLength": 12}
+          }
+        }
+      }
+    },
+    "drafted": {
+      "allOf": [
+        {"$ref": "#/$defs/base"},
+        {
+          "type": "object",
+          "required": ["content_exists", "target"],
+          "properties": {
+            "content_exists": {"const": true},
+            "target": {"type": "string", "minLength": 1}
+          }
+        }
+      ]
+    },
+    "static_pass": {
+      "allOf": [
+        {"$ref": "#/$defs/base"},
+        {
+          "type": "object",
+          "required": ["validator", "exit_code", "target"],
+          "properties": {
+            "validator": {"const": "aai-package"},
+            "exit_code": {"const": 0},
+            "target": {"type": "string", "minLength": 1}
+          }
+        }
+      ]
+    },
+    "controller_only": {
+      "type": "object",
+      "description": "Standalone gate must reject this label. Host controller only."
+    }
+  }
+}

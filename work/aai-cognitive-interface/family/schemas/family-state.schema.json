@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "aai-family-state",
+  "title": "AAI family analysis state",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["objective", "packages_present", "packages_absent", "family_claim", "blockers"],
+  "properties": {
+    "objective": {"type": "string"},
+    "packages_present": {"type": "array", "items": {"type": "string"}},
+    "packages_absent": {"type": "array", "items": {"type": "string"}},
+    "family_claim": {"enum": ["STATIC-PASS", "PARTIAL", "BLOCKED"]},
+    "blockers": {"type": "array", "items": {"type": "string"}}
+  }
+}

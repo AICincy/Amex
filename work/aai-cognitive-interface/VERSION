@@ -1,0 +1,10 @@
+0.2.1-codex-2026-09-16
+source-export: 2026-09-16
+content-identity: aai-cognitive-interface
+host: codex-local
+family-label: 0.2.1-codex
+governor-package: aai-cognitive-interface
+claimable-status: STATIC-PASS-after-current-run-gate
+codex-presence-check: package gate plus local skill-directory verification
+forbidden-unattested: SAVED INSTALLED RUNTIME-SMOKE-PASS RUNTIME-VERIFIED ADVERSARIAL-PASS
+adaptation: file-and-tool, not-memory, not-export-learning

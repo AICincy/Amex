@@ -1,0 +1,12 @@
+{
+  "DRAFTED": {
+    "current_run": true,
+    "content_exists": true,
+    "target": "C:/temp/aai-cognitive-interface/tests/fixtures/valid-draft.md",
+    "evidence": {
+      "kind": "content",
+      "source": "filesystem",
+      "detail": "Fixture draft file exists and is nonempty."
+    }
+  }
+}

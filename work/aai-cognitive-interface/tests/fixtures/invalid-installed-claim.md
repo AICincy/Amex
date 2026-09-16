@@ -1,0 +1,1 @@
+The skill is INSTALLED and RUNTIME-VERIFIED.
