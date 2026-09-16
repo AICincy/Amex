@@ -1,0 +1,9 @@
+{
+  "file": "work\\scholarly-report\\grok_openai_skill_remediation_technical_report.docx",
+  "counts": {
+    "high": 0,
+    "medium": 0,
+    "low": 0
+  },
+  "findings": []
+}

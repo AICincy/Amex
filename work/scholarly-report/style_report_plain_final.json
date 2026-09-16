@@ -1,0 +1,75 @@
+{
+  "input": "C:\\Users\\jared\\Documents\\GitHub\\AAI Repos\\AAI-Amex\\Amex\\work\\scholarly-report\\grok_openai_skill_remediation_technical_report.docx",
+  "fonts_by_char_count": {
+    "Times New Roman": 164
+  },
+  "direct_run_formatting_runs": 12,
+  "direct_paragraph_formatting_paragraphs": 50,
+  "heading_like_paragraphs_not_heading_style": [
+    {
+      "para_index": 3,
+      "text": "Abstract",
+      "style": "Normal"
+    }
+  ],
+  "examples": {
+    "direct_paragraph_formatting": [
+      {
+        "para_index": 2,
+        "text": "Technical remediation account and evidence bounded verification",
+        "style": "Normal"
+      },
+      {
+        "para_index": 3,
+        "text": "Abstract",
+        "style": "Normal"
+      },
+      {
+        "para_index": 4,
+        "text": "This report explains how a Grok-origin skill workspace was remediated for local Codex use under an OpenAI-compatible con",
+        "style": "Normal"
+      },
+      {
+        "para_index": 5,
+        "text": "Keywords  Codex skills, host portability, provenance, authorization gates, runtime validation",
+        "style": "Normal"
+      },
+      {
+        "para_index": 7,
+        "text": "The source repository contains a `.grok/workspace.yaml` marker identifying the workspace host as `grok` [R1]. The techni",
+        "style": "Normal"
+      }
+    ],
+    "direct_run_formatting": [
+      {
+        "para_index": 2,
+        "run_text": "Technical remediation account and evidence bounded verification",
+        "style": "Normal"
+      },
+      {
+        "para_index": 3,
+        "run_text": "Abstract",
+        "style": "Normal"
+      },
+      {
+        "para_index": 5,
+        "run_text": "Keywords  ",
+        "style": "Normal"
+      },
+      {
+        "para_index": 5,
+        "run_text": "Codex skills, host portability, provenance, authorization gates, runtime validat",
+        "style": "Normal"
+      },
+      {
+        "para_index": 66,
+        "run_text": "[R1] `.grok/workspace.yaml`, workspace marker identifying `host: grok`. Inspecte",
+        "style": "Normal"
+      }
+    ]
+  },
+  "notes": [
+    "Direct formatting is not always wrong, but it often causes inconsistent output when templates change.",
+    "Heading-like paragraphs not using Heading styles can break TOC and accessibility."
+  ]
+}

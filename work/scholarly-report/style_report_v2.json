@@ -1,0 +1,171 @@
+{
+  "input": "C:\\Users\\jared\\Documents\\GitHub\\AAI Repos\\AAI-Amex\\Amex\\work\\scholarly-report\\grok_openai_skill_remediation_technical_report.docx",
+  "fonts_by_char_count": {
+    "Times New Roman": 15143,
+    "Courier New": 184
+  },
+  "direct_run_formatting_runs": 186,
+  "direct_paragraph_formatting_paragraphs": 170,
+  "heading_like_paragraphs_not_heading_style": [
+    {
+      "para_index": 4,
+      "text": "Abstract",
+      "style": "Normal"
+    },
+    {
+      "para_index": 74,
+      "text": "Evidence",
+      "style": "Normal"
+    },
+    {
+      "para_index": 75,
+      "text": "Defensible conclusion",
+      "style": "Normal"
+    },
+    {
+      "para_index": 76,
+      "text": "Excluded conclusion",
+      "style": "Normal"
+    },
+    {
+      "para_index": 89,
+      "text": "Stage",
+      "style": "Normal"
+    },
+    {
+      "para_index": 90,
+      "text": "Controlled transformation",
+      "style": "Normal"
+    },
+    {
+      "para_index": 91,
+      "text": "Resulting claim",
+      "style": "Normal"
+    },
+    {
+      "para_index": 107,
+      "text": "Module",
+      "style": "Normal"
+    },
+    {
+      "para_index": 108,
+      "text": "Implemented control",
+      "style": "Normal"
+    },
+    {
+      "para_index": 109,
+      "text": "Security and operations effect",
+      "style": "Normal"
+    },
+    {
+      "para_index": 125,
+      "text": "Commit",
+      "style": "Normal"
+    },
+    {
+      "para_index": 126,
+      "text": "Recorded change",
+      "style": "Normal"
+    },
+    {
+      "para_index": 127,
+      "text": "Material contribution",
+      "style": "Normal"
+    },
+    {
+      "para_index": 143,
+      "text": "Evaluation",
+      "style": "Normal"
+    },
+    {
+      "para_index": 144,
+      "text": "Observed result",
+      "style": "Normal"
+    },
+    {
+      "para_index": 145,
+      "text": "Interpretation",
+      "style": "Normal"
+    },
+    {
+      "para_index": 158,
+      "text": "Risk",
+      "style": "Normal"
+    },
+    {
+      "para_index": 159,
+      "text": "Mitigation",
+      "style": "Normal"
+    },
+    {
+      "para_index": 160,
+      "text": "Residual condition",
+      "style": "Normal"
+    },
+    {
+      "para_index": 176,
+      "text": "Skill",
+      "style": "Normal"
+    }
+  ],
+  "examples": {
+    "direct_run_formatting": [
+      {
+        "para_index": 2,
+        "run_text": "A provenance preserving technical account of package translation controls and ve",
+        "style": "Normal"
+      },
+      {
+        "para_index": 3,
+        "run_text": "Technical remediation report   |   Evidence date 16 September 2026",
+        "style": "Normal"
+      },
+      {
+        "para_index": 4,
+        "run_text": "Abstract",
+        "style": "Normal"
+      },
+      {
+        "para_index": 5,
+        "run_text": "This report reconstructs the migration of a Grok-origin skill workspace into loc",
+        "style": "Normal"
+      },
+      {
+        "para_index": 6,
+        "run_text": "Keywords  ",
+        "style": "Normal"
+      }
+    ],
+    "direct_paragraph_formatting": [
+      {
+        "para_index": 3,
+        "text": "Technical remediation report   |   Evidence date 16 September 2026",
+        "style": "Normal"
+      },
+      {
+        "para_index": 5,
+        "text": "This report reconstructs the migration of a Grok-origin skill workspace into local, OpenAI-compatible Codex skill packag",
+        "style": "Normal"
+      },
+      {
+        "para_index": 11,
+        "text": "Table 1. Evidence interpretation rules",
+        "style": "Normal"
+      },
+      {
+        "para_index": 12,
+        "text": "",
+        "style": "Normal"
+      },
+      {
+        "para_index": 15,
+        "text": "Table 2. Provenance preserving remediation pipeline",
+        "style": "Normal"
+      }
+    ]
+  },
+  "notes": [
+    "Direct formatting is not always wrong, but it often causes inconsistent output when templates change.",
+    "Heading-like paragraphs not using Heading styles can break TOC and accessibility."
+  ]
+}
