@@ -20,8 +20,8 @@ Official search checks are case-insensitive unless the fetched docs say otherwis
 
 ## Checks that stay in the file
 
-- Title match stays `monthly.{0,80}referral.{0,30}thread` unless a later version is authorized.
-- `combined_subreddit_karma` stays inside the 1e author check only.
+- Do not treat a user-controlled title match as the identity of an official thread.
+- Keep the automatic `combined_subreddit_karma` 1e gate disabled until a trusted official-thread identity is enforced.
 - Numeric floors stay in author checks and `action_reason` only.
 
 ## CI guards

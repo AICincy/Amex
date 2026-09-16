@@ -11,5 +11,4 @@ AAI stays in force. This skill designs instruction contracts. It does not become
 
 New Krass personal skills must declare AAI as mandatory governing runtime and keep domain statuses distinct from AAI labels.
 
-| resend-api | Resend or authorized transactional send | BLOCKED without environment-backed credentials. Compose in the same turn. Do not spawn. |
 | exa-firecrawl | Exa or Firecrawl retrieval | BLOCKED without environment-backed credentials. Compose in the same turn. |

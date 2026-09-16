@@ -27,18 +27,13 @@ def load_env() -> None:
 
 
 def main() -> int:
-    load_env()
     parser = argparse.ArgumentParser()
     parser.add_argument("query")
     parser.add_argument("--user", required=True)
     parser.add_argument("--conversation-id", default="")
+    parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--execute", action="store_true")
     args = parser.parse_args()
-
-    base = os.environ.get("DIFY_API_URL", "").rstrip("/")
-    key = os.environ.get("DIFY_API_KEY", "")
-    if not base or not key:
-        print("BLOCKED DIFY_API_URL or DIFY_API_KEY missing", file=sys.stderr)
-        return 2
 
     body = {
         "inputs": {},
@@ -48,6 +43,29 @@ def main() -> int:
         "conversation_id": args.conversation_id,
         "auto_generate_name": True,
     }
+    if args.dry_run:
+        print(
+            json.dumps(
+                {
+                    "ok": True,
+                    "dry_run": True,
+                    "method": "POST",
+                    "path": "/chat-messages",
+                    "body": body,
+                }
+            )
+        )
+        return 0
+    if not args.execute:
+        print("BLOCKED --execute required for a live Dify send", file=sys.stderr)
+        return 2
+
+    load_env()
+    base = os.environ.get("DIFY_API_URL", "").rstrip("/")
+    key = os.environ.get("DIFY_API_KEY", "")
+    if not base or not key:
+        print("BLOCKED DIFY_API_URL or DIFY_API_KEY missing", file=sys.stderr)
+        return 2
     req = urllib.request.Request(
         f"{base}/chat-messages",
         data=json.dumps(body).encode("utf-8"),

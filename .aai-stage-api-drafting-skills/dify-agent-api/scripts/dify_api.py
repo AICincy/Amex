@@ -26,7 +26,28 @@ def load_env() -> None:
         os.environ.setdefault(key.strip(), value.strip().strip("'").strip('"'))
 
 
-def request(method: str, path: str, query: dict | None = None, body: dict | None = None) -> int:
+def request(
+    method: str,
+    path: str,
+    query: dict | None = None,
+    body: dict | None = None,
+    *,
+    dry_run: bool = False,
+) -> int:
+    if dry_run:
+        print(
+            json.dumps(
+                {
+                    "ok": True,
+                    "dry_run": True,
+                    "method": method,
+                    "path": path,
+                    "query": query or {},
+                    "body": body,
+                }
+            )
+        )
+        return 0
     load_env()
     base = os.environ.get("DIFY_API_URL", "").rstrip("/")
     key = os.environ.get("DIFY_API_KEY", "")
@@ -53,34 +74,46 @@ def request(method: str, path: str, query: dict | None = None, body: dict | None
 def main() -> int:
     parser = argparse.ArgumentParser()
     sub = parser.add_subparsers(dest="cmd", required=True)
-    sub.add_parser("info")
-    sub.add_parser("parameters")
-    sub.add_parser("meta")
-    p_conv = sub.add_parser("conversations")
+    shared = argparse.ArgumentParser(add_help=False)
+    shared.add_argument("--dry-run", action="store_true")
+    shared.add_argument("--execute", action="store_true")
+    sub.add_parser("info", parents=[shared])
+    sub.add_parser("parameters", parents=[shared])
+    sub.add_parser("meta", parents=[shared])
+    p_conv = sub.add_parser("conversations", parents=[shared])
     p_conv.add_argument("--user", required=True)
-    p_msg = sub.add_parser("messages")
+    p_msg = sub.add_parser("messages", parents=[shared])
     p_msg.add_argument("--conversation-id", required=True)
     p_msg.add_argument("--user", required=True)
-    p_stop = sub.add_parser("stop")
+    p_stop = sub.add_parser("stop", parents=[shared])
     p_stop.add_argument("--task-id", required=True)
     p_stop.add_argument("--user", required=True)
     args = parser.parse_args()
+    if not args.dry_run and not args.execute:
+        print("BLOCKED --execute required for a live Dify request", file=sys.stderr)
+        return 2
     if args.cmd == "info":
-        return request("GET", "/info")
+        return request("GET", "/info", dry_run=args.dry_run)
     if args.cmd == "parameters":
-        return request("GET", "/parameters")
+        return request("GET", "/parameters", dry_run=args.dry_run)
     if args.cmd == "meta":
-        return request("GET", "/meta")
+        return request("GET", "/meta", dry_run=args.dry_run)
     if args.cmd == "conversations":
-        return request("GET", "/conversations", query={"user": args.user})
+        return request("GET", "/conversations", query={"user": args.user}, dry_run=args.dry_run)
     if args.cmd == "messages":
         return request(
             "GET",
             "/messages",
             query={"user": args.user, "conversation_id": args.conversation_id},
+            dry_run=args.dry_run,
         )
     if args.cmd == "stop":
-        return request("POST", f"/chat-messages/{args.task_id}/stop", body={"user": args.user})
+        return request(
+            "POST",
+            f"/chat-messages/{args.task_id}/stop",
+            body={"user": args.user},
+            dry_run=args.dry_run,
+        )
     return 2
 
 

@@ -27,7 +27,10 @@ python scripts/docs_search.py "QUERY" --dry-run
 python scripts/speko_call.py GET /v1/agents --dry-run
 ```
 
-Remove `--dry-run` only for a request within the current authorized scope.
+`--dry-run` validates the method and destination without loading credentials or
+making a request. Live requests also require `--execute`; the helper sends a
+credential only to `https://api.speko.dev` and rejects authority-bearing paths.
+`--execute` does not replace current scope authorization.
 Creation, deployment, testing that consumes credits, phone dialing, deletion,
 and any account or key change require explicit current authorization. Use a
 fresh idempotency key for a mutating request. Do not claim a created agent,

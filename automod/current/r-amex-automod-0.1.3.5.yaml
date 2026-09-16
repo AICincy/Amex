@@ -1,5 +1,5 @@
 ---
-# r/Amex AutoMod 0.1.3.5
+# r/Amex AutoMod 0.1.3.5 security-hardening draft; not a live-state claim
 # SHADOW BAN
 ---
 # User shadowbans
@@ -15,34 +15,29 @@ action: remove
 action_reason: "5b. Email address"
 comment: "Hey /u/{{author}}, your [{{kind}}]({{permalink}}) violates [Rule 5b](https://www.reddit.com/r/{{subreddit}}/about/rules) because email addresses are not allowed. This has been removed. I am an automated bot. If you have questions about this action, follow the procedure and [send modmail](https://www.reddit.com/message/compose?to=/r/{{subreddit}})."
 ---
-# Remove referrals in comments, except monthly referral threads
+# Hold referral links in comments for moderator review. A title is not identity.
 type: comment
 body+title (includes, regex): ["refer\\.amex", "americanexpress\\.com/.*/referral", "americanexpress\\.com/referral"]
-parent_submission:
-    ~title (regex): ['monthly.{0,80}referral.{0,30}thread']
-action: remove
+action: filter
 action_reason: "1a"
-comment: "Hey /u/{{author}}, your [{{kind}}]({{permalink}}) violates [Rule 1a](https://www.reddit.com/r/{{subreddit}}/about/rules) because referral and affiliate links only go in the current monthly referral thread. This has been removed. I am an automated bot. If you have questions about this action, follow the procedure and [send modmail](https://www.reddit.com/message/compose?to=/r/{{subreddit}})."
+comment: "Hey /u/{{author}}, your [{{kind}}]({{permalink}}) includes a referral or affiliate link and has been held for moderator review. I am an automated bot. If you have questions about this action, follow the procedure and [send modmail](https://www.reddit.com/message/compose?to=/r/{{subreddit}})."
 ---
-# Remove referrals in submissions, except the monthly referral thread itself
+# Hold referral links in submissions for moderator review. A title is not identity.
 type: submission
 body+title (includes, regex): ["refer\\.amex", "americanexpress\\.com/.*/referral", "americanexpress\\.com/referral"]
-~title (regex): ['monthly.{0,80}referral.{0,30}thread']
-action: remove
+action: filter
 action_reason: "1a"
-comment: "Hey /u/{{author}}, your [{{kind}}]({{permalink}}) violates [Rule 1a](https://www.reddit.com/r/{{subreddit}}/about/rules) because referral and affiliate links only go in the current monthly referral thread. This has been removed. I am an automated bot. If you have questions about this action, follow the procedure and [send modmail](https://www.reddit.com/message/compose?to=/r/{{subreddit}})."
+comment: "Hey /u/{{author}}, your [{{kind}}]({{permalink}}) includes a referral or affiliate link and has been held for moderator review. I am an automated bot. If you have questions about this action, follow the procedure and [send modmail](https://www.reddit.com/message/compose?to=/r/{{subreddit}})."
 ---
-# Automatically remove anything that gets 2+ reports and send modmail
+# Send anything with 2+ reports to moderator review; reports alone do not remove.
 reports: 2
-action: remove
-action_reason: "Removed after 2 reports"
-modmail: "Removed after 2 reports. Confirm the action."
+action: filter
+action_reason: "Filtered after 2 reports"
+modmail: "Filtered after 2 reports. Review for coordinated or false reports."
 ---
-# Remove credit card numbers in comments, except monthly referral threads
+# Remove credit card numbers in comments in every context.
 type: comment
 title+body (regex): ['\b(?:4[0-9]{15}|5[0-9]{15}|3[0-9]{14}|6[0-9]{15})\b']
-parent_submission:
-    ~title (regex): ['monthly.{0,80}referral.{0,30}thread']
 action: remove
 action_reason: "5b. Possible card number [{{match}}]"
 modmail_subject: "5b. Possible card number"
@@ -52,10 +47,9 @@ modmail: |
     If this is another person's account information, ban and report to Reddit admins.
 comment: "Hey /u/{{author}}, your [{{kind}}]({{permalink}}) violates [Rule 5b](https://www.reddit.com/r/{{subreddit}}/about/rules) because that looks like a payment card number. This has been removed. I am an automated bot. If you have questions about this action, follow the procedure and [send modmail](https://www.reddit.com/message/compose?to=/r/{{subreddit}})."
 ---
-# Remove credit card numbers in submissions, except the monthly referral thread itself
+# Remove credit card numbers in submissions in every context.
 type: submission
 title+body (regex): ['\b(?:4[0-9]{15}|5[0-9]{15}|3[0-9]{14}|6[0-9]{15})\b']
-~title (regex): ['monthly.{0,80}referral.{0,30}thread']
 action: remove
 action_reason: "5b. Possible card number [{{match}}]"
 modmail_subject: "5b. Possible card number"
@@ -64,19 +58,6 @@ modmail: |
     /u/{{author}} {{kind}} removed. Possible card number.
     If this is another person's account information, ban and report to Reddit admins.
 comment: "Hey /u/{{author}}, your [{{kind}}]({{permalink}}) violates [Rule 5b](https://www.reddit.com/r/{{subreddit}}/about/rules) because that looks like a payment card number. This has been removed. I am an automated bot. If you have questions about this action, follow the procedure and [send modmail](https://www.reddit.com/message/compose?to=/r/{{subreddit}})."
----
-# Remove low community-karma referral comments inside monthly referral threads only
-# Unpublished 250 stays in author check and action_reason. Never in comment.
-# Do not use this author check on any other rule. It is not a sitewide gate.
-type: comment
-parent_submission:
-    title (regex): ['monthly.{0,80}referral.{0,30}thread']
-body (includes, regex): ["refer\\.amex", "americanexpress\\.com/.*/referral", "americanexpress\\.com/referral"]
-author:
-    combined_subreddit_karma: "< 250"
-action: remove
-action_reason: "1e. Insufficient r/Amex community karma on a monthly-thread referral comment"
-comment: "Hey /u/{{author}}, your [{{kind}}]({{permalink}}) violates [Rule 1e](https://www.reddit.com/r/{{subreddit}}/about/rules) because a referral link in the monthly referral thread requires prior participation here. Ordinary posts and comments outside that thread are not removed for this reason. This has been removed. I am an automated bot. If you have questions about this action, follow the procedure and [send modmail](https://www.reddit.com/message/compose?to=/r/{{subreddit}})."
 ---
 #prevent troll accounts
 author:
@@ -157,22 +138,19 @@ action: remove
 action_reason: "Aged account with no karma"
 comment: "Hey /u/{{author}}, your [{{kind}}]({{permalink}}) violates [the rules](https://www.reddit.com/r/{{subreddit}}/about/rules) because this account is over a year old and has no site karma. This has been removed. I am an automated bot. If you have questions about this action, follow the procedure and [send modmail](https://www.reddit.com/message/compose?to=/r/{{subreddit}})."
 ---
-# PACKET 1a. Referral or affiliate link text outside monthly referral threads (comments)
+# PACKET 1a. Referral or affiliate-link text held for review (comments)
 type: comment
 body+title (includes): ["affiliate link", "use my referral", "my referral links", "amex referral link"]
-parent_submission:
-    ~title (regex): ['monthly.{0,80}referral.{0,30}thread']
-action: remove
+action: filter
 action_reason: "1a"
-comment: "Hey /u/{{author}}, your [{{kind}}]({{permalink}}) violates [Rule 1a](https://www.reddit.com/r/{{subreddit}}/about/rules) because referral and affiliate links only go in the current monthly referral thread. This has been removed. I am an automated bot. If you have questions about this action, follow the procedure and [send modmail](https://www.reddit.com/message/compose?to=/r/{{subreddit}})."
+comment: "Hey /u/{{author}}, your [{{kind}}]({{permalink}}) includes referral or affiliate-link text and has been held for moderator review. I am an automated bot. If you have questions about this action, follow the procedure and [send modmail](https://www.reddit.com/message/compose?to=/r/{{subreddit}})."
 ---
-# PACKET 1a. Referral or affiliate link text outside monthly referral threads (submissions)
+# PACKET 1a. Referral or affiliate-link text held for review (submissions)
 type: submission
 body+title (includes): ["affiliate link", "use my referral", "my referral links", "amex referral link"]
-~title (regex): ['monthly.{0,80}referral.{0,30}thread']
-action: remove
+action: filter
 action_reason: "1a"
-comment: "Hey /u/{{author}}, your [{{kind}}]({{permalink}}) violates [Rule 1a](https://www.reddit.com/r/{{subreddit}}/about/rules) because referral and affiliate links only go in the current monthly referral thread. This has been removed. I am an automated bot. If you have questions about this action, follow the procedure and [send modmail](https://www.reddit.com/message/compose?to=/r/{{subreddit}})."
+comment: "Hey /u/{{author}}, your [{{kind}}]({{permalink}}) includes referral or affiliate-link text and has been held for moderator review. I am an automated bot. If you have questions about this action, follow the procedure and [send modmail](https://www.reddit.com/message/compose?to=/r/{{subreddit}})."
 ---
 # PACKET 1b. Referral solicitation by DM/PM (comments)
 type: comment
@@ -196,38 +174,33 @@ action: remove
 action_reason: "5d"
 comment: "Hey /u/{{author}}, your [{{kind}}]({{permalink}}) violates [Rule 5d](https://www.reddit.com/r/{{subreddit}}/about/rules) because manufactured spending is not allowed here. This has been removed. I am an automated bot. If you have questions about this action, follow the procedure and [send modmail](https://www.reddit.com/message/compose?to=/r/{{subreddit}})."
 ---
-# PACKET 1d. Social network URLs outside monthly referral threads (comments)
+# PACKET 1d. Social-network URLs held for review (comments)
 type: comment
 body+title (regex): ["(?:instagram\\.com|instagr\\.am|facebook\\.com|m\\.facebook\\.com|fb\\.com|fb\\.me|threads\\.net|tiktok\\.com|vm\\.tiktok\\.com|twitter\\.com|x\\.com/|discord\\.gg|discord\\.com|t\\.me/|telegram\\.me|telegram\\.org|wa\\.me/|whatsapp\\.com|snapchat\\.com|linkedin\\.com|pinterest\\.com|bsky\\.app|linktr\\.ee|linktree\\.com|reddit\\.com/user/|reddit\\.com/u/)"]
-parent_submission:
-    ~title (regex): ['monthly.{0,80}referral.{0,30}thread']
-action: remove
+action: filter
 action_reason: "1d"
-comment: "Hey /u/{{author}}, your [{{kind}}]({{permalink}}) violates [Rule 1d](https://www.reddit.com/r/{{subreddit}}/about/rules) because social and chat links only go in the current monthly referral thread. This has been removed. I am an automated bot. If you have questions about this action, follow the procedure and [send modmail](https://www.reddit.com/message/compose?to=/r/{{subreddit}})."
+comment: "Hey /u/{{author}}, your [{{kind}}]({{permalink}}) includes a social or chat link and has been held for moderator review. I am an automated bot. If you have questions about this action, follow the procedure and [send modmail](https://www.reddit.com/message/compose?to=/r/{{subreddit}})."
 ---
-# PACKET 1d. Social network URLs outside monthly referral threads (submissions)
+# PACKET 1d. Social-network URLs held for review (submissions)
 type: submission
 body+title (regex): ["(?:instagram\\.com|instagr\\.am|facebook\\.com|m\\.facebook\\.com|fb\\.com|fb\\.me|threads\\.net|tiktok\\.com|vm\\.tiktok\\.com|twitter\\.com|x\\.com/|discord\\.gg|discord\\.com|t\\.me/|telegram\\.me|telegram\\.org|wa\\.me/|whatsapp\\.com|snapchat\\.com|linkedin\\.com|pinterest\\.com|bsky\\.app|linktr\\.ee|linktree\\.com|reddit\\.com/user/|reddit\\.com/u/)"]
-~title (regex): ['monthly.{0,80}referral.{0,30}thread']
-action: remove
+action: filter
 action_reason: "1d"
-comment: "Hey /u/{{author}}, your [{{kind}}]({{permalink}}) violates [Rule 1d](https://www.reddit.com/r/{{subreddit}}/about/rules) because social and chat links only go in the current monthly referral thread. This has been removed. I am an automated bot. If you have questions about this action, follow the procedure and [send modmail](https://www.reddit.com/message/compose?to=/r/{{subreddit}})."
+comment: "Hey /u/{{author}}, your [{{kind}}]({{permalink}}) includes a social or chat link and has been held for moderator review. I am an automated bot. If you have questions about this action, follow the procedure and [send modmail](https://www.reddit.com/message/compose?to=/r/{{subreddit}})."
 ---
-# PACKET 1a. Link submissions whose URL is an Amex referral, except the monthly referral thread
+# PACKET 1a. Referral-link submissions held for review
 type: link submission
 url (includes, regex): ["refer\\.amex", "americanexpress\\.com/.*/referral", "americanexpress\\.com/referral"]
-~title (regex): ['monthly.{0,80}referral.{0,30}thread']
-action: remove
+action: filter
 action_reason: "1a"
-comment: "Hey /u/{{author}}, your [{{kind}}]({{permalink}}) violates [Rule 1a](https://www.reddit.com/r/{{subreddit}}/about/rules) because referral and affiliate links only go in the current monthly referral thread. This has been removed. I am an automated bot. If you have questions about this action, follow the procedure and [send modmail](https://www.reddit.com/message/compose?to=/r/{{subreddit}})."
+comment: "Hey /u/{{author}}, your [{{kind}}]({{permalink}}) includes a referral or affiliate link and has been held for moderator review. I am an automated bot. If you have questions about this action, follow the procedure and [send modmail](https://www.reddit.com/message/compose?to=/r/{{subreddit}})."
 ---
-# PACKET 1a. Link submissions through URL shorteners, except the monthly referral thread
+# PACKET 1a. Shortened-link submissions held for review
 type: link submission
 domain: [bit.ly, tinyurl.com, t.co, cutt.ly, rb.gy, tiny.cc]
-~title (regex): ['monthly.{0,80}referral.{0,30}thread']
-action: remove
+action: filter
 action_reason: "1a"
-comment: "Hey /u/{{author}}, your [{{kind}}]({{permalink}}) violates [Rule 1a](https://www.reddit.com/r/{{subreddit}}/about/rules) because shortened links are treated as solicitation. This has been removed. I am an automated bot. If you have questions about this action, follow the procedure and [send modmail](https://www.reddit.com/message/compose?to=/r/{{subreddit}})."
+comment: "Hey /u/{{author}}, your [{{kind}}]({{permalink}}) includes a shortened link and has been held for moderator review. I am an automated bot. If you have questions about this action, follow the procedure and [send modmail](https://www.reddit.com/message/compose?to=/r/{{subreddit}})."
 ---
 # Inclusionary. Point stock FAQ titles at the live Common Questions thread. No removal.
 type: submission

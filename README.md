@@ -11,7 +11,7 @@ GitHub Projects is not enabled for this token. Use [`docs/staff-board.md`](docs/
 
 | Surface | Recorded state | Source |
 | --- | --- | --- |
-| AutoMod wiki | Operator recorded **0.1.3.5** on 2026-09-11. Live 1e comments match that text. | [`automod/current/r-amex-automod-0.1.3.5.yaml`](automod/current/r-amex-automod-0.1.3.5.yaml) |
+| AutoMod wiki | Operator recorded **0.1.3.5** on 2026-09-11. The tracked file is now a security-hardening draft and has not been pasted or versioned for Reddit. | [`automod/current/r-amex-automod-0.1.3.5.yaml`](automod/current/r-amex-automod-0.1.3.5.yaml) |
 | Monthly referral thread | Live `1w4244u`, title `Monthly Amex Referral Thread`, stickied | https://www.reddit.com/r/amex/comments/1w4244u/monthly_amex_referral_thread/ |
 | Common Questions thread | Live `1we44e6`, stickied | https://www.reddit.com/r/amex/comments/1we44e6/monthly_common_questions_advice_thread/ |
 | Rule 1 TEXT | Next monthly thread cycle | [`public/r-amex-rule-1-public-copy.md`](public/r-amex-rule-1-public-copy.md) |
@@ -30,20 +30,20 @@ Do not put unpublished numeric floors in `comment:`, stickies, Rule 1, reason `1
 
 ## What AutoMod does
 
-- Remove referral and affiliate links outside the monthly referral thread.
-- Gate referral-URL comments inside that thread only when the author fails the 1e author check.
-- Remove email addresses, likely card numbers, manufactured-spending mentions, DM/PM solicitation, social links outside the monthly thread.
+- Hold referral, affiliate, social, and shortened links for moderator review; a
+  matching title is not accepted as proof of an official monthly thread.
+- Remove email addresses, likely card numbers, manufactured-spending mentions,
+  and DM/PM solicitation in every context.
+- Keep the former 1e automatic check disabled until an official-thread identity
+  can be enforced rather than inferred from a title.
 - Leave helper comments on a few FAQ titles. Those rules do not remove.
 
-Title match:
-
-```text
-monthly.{0,80}referral.{0,30}thread
-```
+The old monthly-title regex is not an authorization boundary and is not used by
+the hardening draft.
 
 ## Human gates
 
-1. Wiki paste of current YAML if the draft changes.
+1. Moderator review, a new versioned release, then a wiki paste if the hardening draft is approved.
 2. Rule 1 TEXT on the next monthly thread cycle.
 3. Crowd Control re-inspect on or after 2026-09-16.
 4. Point the FAQ helper at `1we44e6` on the next authorized YAML paste. Draft still has August `1vm5hnj`.

@@ -1,6 +1,6 @@
 ---
 name: reddit-owner-ops
-description: Drafts and audits Reddit owner-operation artifacts for AutoMod, queues, modmail, people actions, cadence, settings, flair, safety filters, and team permissions. Use for subreddit owner operations that require a human gate before any live Reddit write.
+description: Drafts and audits named Reddit moderation artifacts in the active objective. It makes no live Reddit change; a human gate is required before any paste or owner action.
 ---
 
 # Reddit Owner Ops

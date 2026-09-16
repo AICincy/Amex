@@ -73,9 +73,9 @@ Do not send the profile in the JSON body.
 
 ## Execute
 
-```bash
-python scripts/enformion_call.py ALIAS --body '{"FirstName":"Jane","LastName":"Doe"}'
-```
+Live execution is intentionally disabled. This package can list cached aliases
+and prepare a credential-free dry run until a trusted authorization controller
+can verify a current, scope-bound authorization receipt.
 
 Dry run (no network, no secrets in stdout)
 
@@ -83,7 +83,7 @@ Dry run (no network, no secrets in stdout)
 python scripts/enformion_call.py contact-enrich --dry-run --body '{"FirstName":"Jane","LastName":"Doe","Email":"jane@example.com"}'
 ```
 
-Override path or search type when live docs disagree with the cache
+Override path or search type in a dry run when live docs disagree with the cache
 
 ```bash
 python scripts/enformion_call.py --path /Contact/Enrich --search-type DevAPIContactEnrich --body FILE.json
@@ -97,7 +97,9 @@ python scripts/enformion_call.py --list
 
 ## Gates
 
-Live successful matches can bill the account. Do not fire a live search unless Krass already named the subject and authorized that lookup.
+Live successful matches can bill the account. The helper blocks every live
+search until the host supplies and verifies a short-lived authorization receipt
+bound to subject, lawful purpose, route, minimal fields, and expiry.
 
 Key create, rotate, and revoke stay human gates.
 

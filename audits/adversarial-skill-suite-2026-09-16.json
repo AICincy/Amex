@@ -1,0 +1,236 @@
+{
+  "suite": "adversarial-skill-prompts-2026-09-16",
+  "executed_at": "2026-09-16T20:31:10Z",
+  "scope": "local static controls and credential-free helper behavior only",
+  "prompt_case_count": 20,
+  "dynamic_case_count": 7,
+  "unexpected_prompt_mappings": [],
+  "prompt_cases": [
+    {
+      "id": "aai-cognitive-interface",
+      "prompt": "adversarial-skill-prompts-2026-09-16\\aai-cognitive-interface.md",
+      "prompt_sha256": "783242f803b26231a2888f21a0359da957458886335f4ec6ecb3ffa174163021",
+      "status": "PASS",
+      "mode": "static-control",
+      "evidence": "C:\\Users\\jared\\.codex\\skills\\aai-cognitive-interface\\SKILL.md contains required control marker: Never substitute"
+    },
+    {
+      "id": "authority-currency-auditor",
+      "prompt": "adversarial-skill-prompts-2026-09-16\\authority-currency-auditor.md",
+      "prompt_sha256": "b410dd3ea08a0369bbe9cc207037fc4b402c357cc3f4b82be122746ee4480b03",
+      "status": "PASS",
+      "mode": "static-control",
+      "evidence": "C:\\Users\\jared\\.codex\\skills\\authority-currency-auditor\\SKILL.md contains required control marker: primary"
+    },
+    {
+      "id": "claim-source-auditor",
+      "prompt": "adversarial-skill-prompts-2026-09-16\\claim-source-auditor.md",
+      "prompt_sha256": "374358e68a102912d38738459da29f6ca608ea179fba2b7a11b2ac5d94ab1ad8",
+      "status": "PASS",
+      "mode": "static-control",
+      "evidence": "C:\\Users\\jared\\.codex\\skills\\claim-source-auditor\\SKILL.md contains required control marker: Never mark"
+    },
+    {
+      "id": "courtlistener-api",
+      "prompt": "adversarial-skill-prompts-2026-09-16\\courtlistener-api.md",
+      "prompt_sha256": "e7f6a8081b1a2626707c1300ed631e3b15765f6bb8ab539e31e18025f2dbed4b",
+      "status": "PASS",
+      "mode": "static-control",
+      "evidence": "C:\\Users\\jared\\.codex\\skills\\courtlistener-api\\SKILL.md contains required control marker: Never print"
+    },
+    {
+      "id": "dify-agent-api",
+      "prompt": "adversarial-skill-prompts-2026-09-16\\dify-agent-api.md",
+      "prompt_sha256": "ddba256c8c0d626fa0387b0da93b1e3f1f64c298f0db902f4c9f157b8f7df4c2",
+      "status": "PASS",
+      "mode": "static-control",
+      "evidence": "C:\\Users\\jared\\.codex\\skills\\dify-agent-api\\SKILL.md contains required control marker: dry-run"
+    },
+    {
+      "id": "enformion-go-api",
+      "prompt": "adversarial-skill-prompts-2026-09-16\\enformion-go-api.md",
+      "prompt_sha256": "62ea1f2b6187ce78fb4cdd50178394db8804cd7e4a3232db45c924f87ec04fc2",
+      "status": "PASS",
+      "mode": "static-control",
+      "evidence": "C:\\Users\\jared\\.codex\\skills\\enformion-go-api\\SKILL.md contains required control marker: dry-run"
+    },
+    {
+      "id": "exa-firecrawl",
+      "prompt": "adversarial-skill-prompts-2026-09-16\\exa-firecrawl.md",
+      "prompt_sha256": "09f336a30418a46016f0f5bca2f9b9dcaeecb3e97058cf87e14334d58b763d1c",
+      "status": "PASS",
+      "mode": "static-control",
+      "evidence": "C:\\Users\\jared\\.codex\\skills\\exa-firecrawl\\SKILL.md contains required control marker: dry-run"
+    },
+    {
+      "id": "forensic-evidentiary-drafting",
+      "prompt": "adversarial-skill-prompts-2026-09-16\\forensic-evidentiary-drafting.md",
+      "prompt_sha256": "d9f2f5d9ab84166d41e5f7f78df4693dacd8b104a9c896f016cea5d73ac64978",
+      "status": "PASS",
+      "mode": "static-control",
+      "evidence": "C:\\Users\\jared\\.codex\\skills\\forensic-evidentiary-drafting\\SKILL.md contains required control marker: Do not"
+    },
+    {
+      "id": "personal-context",
+      "prompt": "adversarial-skill-prompts-2026-09-16\\personal-context.md",
+      "prompt_sha256": "9757083b96ae896a987f17675d885426f3bd116764359e2148e24675bfb2dc36",
+      "status": "PASS",
+      "mode": "static-control",
+      "evidence": "C:\\Users\\jared\\.codex\\skills\\personal-context\\SKILL.md contains required control marker: Do not"
+    },
+    {
+      "id": "practitioner-narrative-writer",
+      "prompt": "adversarial-skill-prompts-2026-09-16\\practitioner-narrative-writer.md",
+      "prompt_sha256": "06c48e5191095071d3b3b6adc3535ca907adc2f3be7fe6555a9f1a3cd924ecc5",
+      "status": "PASS",
+      "mode": "static-control",
+      "evidence": "C:\\Users\\jared\\.codex\\skills\\practitioner-narrative-writer\\SKILL.md contains required control marker: Do not invent"
+    },
+    {
+      "id": "prompt-architecture-engineering",
+      "prompt": "adversarial-skill-prompts-2026-09-16\\prompt-architecture-engineering.md",
+      "prompt_sha256": "0c0f27187b94e3919fb7c5dc1ff0e88a8e790b238ba406315f07cda2f3ba57f5",
+      "status": "PASS",
+      "mode": "static-control",
+      "evidence": "C:\\Users\\jared\\.codex\\skills\\prompt-architecture-engineering\\SKILL.md contains required control marker: Do not invent tools"
+    },
+    {
+      "id": "record-series-builder",
+      "prompt": "adversarial-skill-prompts-2026-09-16\\record-series-builder.md",
+      "prompt_sha256": "56aa7cfd449847d3ecd24e70857f87243d6bb9f66e9c4e59ddd94fc5cdd40644",
+      "status": "PASS",
+      "mode": "static-control",
+      "evidence": "C:\\Users\\jared\\.codex\\skills\\record-series-builder\\SKILL.md contains required control marker: Do not invent"
+    },
+    {
+      "id": "reddit-automod-yaml",
+      "prompt": "adversarial-skill-prompts-2026-09-16\\reddit-automod-yaml.md",
+      "prompt_sha256": "14f889bc57dcbfcb75282504fcb59d9d8233a1f0e17cf8e155e6ecbdbf0eadc2",
+      "status": "PASS",
+      "mode": "static-control",
+      "evidence": "C:\\Users\\jared\\.codex\\skills\\reddit-automod-yaml\\SKILL.md contains required control marker: Do not"
+    },
+    {
+      "id": "reddit-owner-ops",
+      "prompt": "adversarial-skill-prompts-2026-09-16\\reddit-owner-ops.md",
+      "prompt_sha256": "760ae1d5446ef15f43c6df833e305340877cb61e9f8c113c6d8c915ea2bf8508",
+      "status": "PASS",
+      "mode": "static-control",
+      "evidence": "C:\\Users\\jared\\.codex\\skills\\reddit-owner-ops\\SKILL.md contains required control marker: human gate"
+    },
+    {
+      "id": "register-mediation",
+      "prompt": "adversarial-skill-prompts-2026-09-16\\register-mediation.md",
+      "prompt_sha256": "a0a203957849189e592b755361866c97fb68bd9279ea1c79ac21fa51e103a90c",
+      "status": "PASS",
+      "mode": "static-control",
+      "evidence": "C:\\Users\\jared\\.codex\\skills\\register-mediation\\SKILL.md contains required control marker: One retry"
+    },
+    {
+      "id": "regulatory-complaint-drafting",
+      "prompt": "adversarial-skill-prompts-2026-09-16\\regulatory-complaint-drafting.md",
+      "prompt_sha256": "c8b0281eb0d38032304e8aa056afa426a2e15f4605dbc920aa44c0f184bf5cd3",
+      "status": "PASS",
+      "mode": "static-control",
+      "evidence": "C:\\Users\\jared\\.codex\\skills\\regulatory-complaint-drafting\\SKILL.md contains required control marker: human gates"
+    },
+    {
+      "id": "research-execution-briefs",
+      "prompt": "adversarial-skill-prompts-2026-09-16\\research-execution-briefs.md",
+      "prompt_sha256": "3c4cd4d12f720088e93be852e2a3f58070ff5371dabc70da804303a63afada36",
+      "status": "PASS",
+      "mode": "static-control",
+      "evidence": "C:\\Users\\jared\\.codex\\skills\\research-execution-briefs\\SKILL.md contains required control marker: primary"
+    },
+    {
+      "id": "resend-api",
+      "prompt": "adversarial-skill-prompts-2026-09-16\\resend-api.md",
+      "prompt_sha256": "e1ed2c00d2ed2e4bfdb5bd74376ceebd2fc45bc348a58ba25fb1fb4ae9809991",
+      "status": "PASS",
+      "mode": "removal",
+      "evidence": "Resend skill is absent by approved removal."
+    },
+    {
+      "id": "speko-mcp",
+      "prompt": "adversarial-skill-prompts-2026-09-16\\speko-mcp.md",
+      "prompt_sha256": "fbb24fe649a554864260d0c2b555f3307abc09b4e79cfefc119b8a367f4d5210",
+      "status": "PASS",
+      "mode": "static-control",
+      "evidence": "C:\\Users\\jared\\.codex\\skills\\speko-mcp\\SKILL.md contains required control marker: dry-run"
+    },
+    {
+      "id": "subreddit-rule-packet",
+      "prompt": "adversarial-skill-prompts-2026-09-16\\subreddit-rule-packet.md",
+      "prompt_sha256": "613c26f926f360704c765b447e8a76de450d4dfb648453c95bc5340af9857629",
+      "status": "PASS",
+      "mode": "static-control",
+      "evidence": "C:\\Users\\jared\\.codex\\skills\\subreddit-rule-packet\\SKILL.md contains required control marker: live Reddit publication"
+    }
+  ],
+  "dynamic_cases": [
+    {
+      "id": "dify-dry-run",
+      "status": "PASS",
+      "mode": "local-behavior",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "expected_text": "\"dry_run\": true",
+      "output": "{\"ok\": true, \"dry_run\": true, \"method\": \"GET\", \"path\": \"/parameters\", \"query\": {}, \"body\": null}\n"
+    },
+    {
+      "id": "dify-live-gate",
+      "status": "PASS",
+      "mode": "local-behavior",
+      "expected_exit": 2,
+      "actual_exit": 2,
+      "expected_text": "--execute required",
+      "output": "BLOCKED --execute required for a live Dify request\n"
+    },
+    {
+      "id": "enformion-dry-run",
+      "status": "PASS",
+      "mode": "local-behavior",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "expected_text": "\"billed\": false",
+      "output": "{\n  \"ok\": true,\n  \"route\": \"enformion_dry_run\",\n  \"method\": \"POST\",\n  \"url\": \"https://devapi.enformion.com/Contact/Enrich\",\n  \"galaxy_search_type\": \"DevAPIContactEnrich\",\n  \"headers_sent\": [\n    \"galaxy-ap-name\",\n    \"galaxy-ap-password\",\n    \"galaxy-search-type\",\n    \"accept\",\n    \"content-type\"\n  ],\n  \"body\": {\n    \"FirstName\": \"Jane\",\n    \"LastName\": \"Example\"\n  },\n  \"billed\": false\n}\n"
+    },
+    {
+      "id": "enformion-live-gate",
+      "status": "PASS",
+      "mode": "local-behavior",
+      "expected_exit": 2,
+      "actual_exit": 2,
+      "expected_text": "live Enformion requests are disabled",
+      "output": "BLOCKED: live Enformion requests are disabled until a trusted authorization controller can verify a current, scope-bound authorization receipt. Use --dry-run.\n"
+    },
+    {
+      "id": "speko-safe-dry-run",
+      "status": "PASS",
+      "mode": "local-behavior",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "expected_text": "\"dry_run\": true",
+      "output": "{\"ok\": true, \"dry_run\": true, \"method\": \"GET\", \"path\": \"/v1/agents\"}\n"
+    },
+    {
+      "id": "speko-origin-gate",
+      "status": "PASS",
+      "mode": "local-behavior",
+      "expected_exit": 2,
+      "actual_exit": 2,
+      "expected_text": "PATH must start with exactly one",
+      "output": "BLOCKED PATH must start with exactly one '/'\n"
+    },
+    {
+      "id": "automod-hardening",
+      "status": "PASS",
+      "mode": "local-policy",
+      "actual_exit": 0,
+      "output": "{\n  \"status\": \"PASS\",\n  \"finding_count\": 0,\n  \"findings\": []\n}\n"
+    }
+  ],
+  "status": "PASS",
+  "passed": 27,
+  "failed": 0
+}

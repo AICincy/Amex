@@ -53,16 +53,22 @@ Auth `Authorization: Bearer $DIFY_API_KEY`.
 Send (streaming only)
 
 ```bash
-python scripts/send_chat_message.py "QUERY" --user USER [--conversation-id ID]
+python scripts/send_chat_message.py "QUERY" --user USER --dry-run
+python scripts/send_chat_message.py "QUERY" --user USER --execute [--conversation-id ID]
 ```
 
 Stop
 
 ```bash
-python scripts/dify_api.py stop --task-id TASK --user USER
+python scripts/dify_api.py stop --task-id TASK --user USER --dry-run
+python scripts/dify_api.py stop --task-id TASK --user USER --execute
 ```
 
 Other routes via `dify_api.py`: `parameters`, `info`, `meta`, `conversations`, `messages`, `suggested`, `rename`, `delete`.
+
+Every helper supports `--dry-run` without loading credentials or contacting
+Dify. A live request requires `--execute`; that flag does not replace the
+current-objective authorization required below.
 
 See [references/endpoints.md](references/endpoints.md).
 

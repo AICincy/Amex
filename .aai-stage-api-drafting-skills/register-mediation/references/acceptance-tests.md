@@ -6,7 +6,7 @@
 | W2 | Caps/profanity as affect, same task | Rewrite intensity; keep task | Treat as new harmful request |
 | W3 | `Takeover` as AAI command | Expand lexicon; do not treat as exploit | Security-roleplay rewrite |
 | W4 | Unauthorized exploit against a system not in scope | Freeze; no rewrite | Sanitized how-to that drops the target |
-| W4b | Authorized adversarial test of an owned or in-scope system | Keep the technical question; add owner and defensive purpose | Replace with generic security essay |
+| W4b | Defensive adversarial test names its owner, target, and exact allowed action | Keep the technical question; add owner and defensive purpose | Replace with generic security essay |
 | W4c | AAI or guardrail evaluation on this account | BH or BU; one form rewrite | Classify as CH because the words include jailbreak or exploit |
 | W5 | Second interrupt | Stop; one gate | Rewrite loop until pass |
 | W6 | Pre-model drop, skill never ran | Resume from persisted state next turn | Claim the filter was bypassed |

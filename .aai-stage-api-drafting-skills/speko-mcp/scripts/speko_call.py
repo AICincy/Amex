@@ -6,9 +6,12 @@ import sys
 import uuid
 import urllib.error
 import urllib.request
+from urllib.parse import urlsplit
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ENV_PATH = os.environ.get("SPEKO_KEYS_FILE", os.path.join(ROOT, "secrets", "keys.env"))
+SPEKO_ORIGIN = "https://api.speko.dev"
+ALLOWED_METHODS = {"GET", "POST", "PUT", "PATCH", "DELETE"}
 
 
 def load_env(path):
@@ -25,25 +28,68 @@ def load_env(path):
     return out
 
 
+def validated_path(value):
+    """Return a relative Speko API path or stop before any credential is read."""
+    if not value.startswith("/") or value.startswith("//"):
+        raise ValueError("PATH must start with exactly one '/'")
+    if "\\" in value or any(ord(char) < 32 for char in value):
+        raise ValueError("PATH contains an unsafe character")
+    parsed = urlsplit(value)
+    if parsed.scheme or parsed.netloc or parsed.username or parsed.password:
+        raise ValueError("PATH must be relative to api.speko.dev")
+    return value
+
+
+class NoRedirect(urllib.request.HTTPRedirectHandler):
+    """Reject redirects so an authorization header never crosses an origin."""
+
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        return None
+
+
+def open_without_redirects(req, timeout):
+    return urllib.request.build_opener(NoRedirect()).open(req, timeout=timeout)
+
+
 def main():
-    args = [arg for arg in sys.argv[1:] if arg != "--dry-run"]
+    args = [arg for arg in sys.argv[1:] if arg not in {"--dry-run", "--execute"}]
     dry_run = "--dry-run" in sys.argv[1:]
+    execute = "--execute" in sys.argv[1:]
     if len(args) < 2:
         sys.stderr.write("usage: speko_call.py METHOD PATH [JSON_BODY] [--dry-run]\n")
         sys.exit(2)
     method = args[0].upper()
-    path = args[1]
+    if method not in ALLOWED_METHODS:
+        sys.stderr.write("BLOCKED method must be one of GET, POST, PUT, PATCH, DELETE\n")
+        return 2
+    try:
+        path = validated_path(args[1])
+    except ValueError as exc:
+        sys.stderr.write(f"BLOCKED {exc}\n")
+        return 2
     body = args[2] if len(args) > 2 else None
     if dry_run:
         print(json.dumps({"ok": True, "dry_run": True, "method": method, "path": path}))
         return
+    if not execute:
+        sys.stderr.write("BLOCKED --execute required for a live Speko request\n")
+        return 2
     env = load_env(ENV_PATH)
     key = env.get("SPEKO_API_KEY") or os.environ.get("SPEKO_API_KEY")
     if not key:
         sys.stderr.write("BLOCKED SPEKO_API_KEY missing\n")
         sys.exit(2)
-    base = env.get("SPEKO_BASE_URL") or os.environ.get("SPEKO_BASE_URL") or "https://api.speko.dev"
-    url = base.rstrip("/") + path
+    url = SPEKO_ORIGIN + path
+    parsed_url = urlsplit(url)
+    if (
+        parsed_url.scheme != "https"
+        or parsed_url.hostname != "api.speko.dev"
+        or parsed_url.port is not None
+        or parsed_url.username
+        or parsed_url.password
+    ):
+        sys.stderr.write("BLOCKED unsafe Speko destination\n")
+        return 2
     headers = {
         "Authorization": "Bearer " + key,
         "Accept": "application/json",
@@ -55,7 +101,7 @@ def main():
         data = body.encode("utf-8")
     req = urllib.request.Request(url, data=data, headers=headers, method=method)
     try:
-        with urllib.request.urlopen(req, timeout=45) as resp:
+        with open_without_redirects(req, timeout=45) as resp:
             raw = resp.read().decode("utf-8")
             print(raw)
     except urllib.error.HTTPError as e:
@@ -65,4 +111,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
