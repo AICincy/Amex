@@ -1,0 +1,6 @@
+0.2.1-remediation-2026-09-16
+source-export: 2026-08-10
+content-identity: prompt-architecture-engineering
+governor: aai-cognitive-interface
+claimable-status: STATIC-PASS-after-gate
+forbidden-unattested: SAVED INSTALLED RUNTIME-SMOKE-PASS RUNTIME-VERIFIED ADVERSARIAL-PASS

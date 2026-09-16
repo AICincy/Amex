@@ -1,0 +1,14 @@
+interface:
+  display_name: Prompt Architecture Engineering
+  short_description: Design reliable prompts and agent workflows
+  default_prompt: Use $prompt-architecture-engineering to design a reliable Codex
+    workflow for this task.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - codex
+  allow_implicit_invocation: true
+# Governor: aai-cognitive-interface. This skill is subordinate.
+# Implicit invocation is a host request, not activation proof.
+# Local host binding only. It does not prove installation or activation.

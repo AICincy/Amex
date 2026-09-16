@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "pae-architecture-state",
+  "title": "Prompt architecture domain state",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["target_host", "static_review", "runtime_claim"],
+  "properties": {
+    "target_host": {"type": "string", "minLength": 1},
+    "target_model": {"type": "string"},
+    "authority_hierarchy": {"type": "array", "items": {"type": "string"}},
+    "available_tools": {"type": "array", "items": {"type": "string"}},
+    "failure_cases": {"type": "array", "items": {"type": "string"}},
+    "completion_evidence": {"type": "string"},
+    "output_contract": {"type": "string"},
+    "static_review": {"enum": ["PASS", "FAIL", "NOT-RUN"]},
+    "runtime_claim": {"enum": ["none"]},
+    "unknown_host_behavior": {"type": "array", "items": {"type": "string"}}
+  }
+}
