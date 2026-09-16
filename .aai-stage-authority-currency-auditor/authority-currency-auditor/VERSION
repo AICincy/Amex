@@ -1,0 +1,8 @@
+0.2.1-remediation-2026-09-16
+source-export: 2026-08-10
+content-identity: authority-currency-auditor
+governor: aai-cognitive-interface
+claimable-status: STATIC-PASS-after-gate
+forbidden-unattested: SAVED INSTALLED RUNTIME-SMOKE-PASS RUNTIME-VERIFIED ADVERSARIAL-PASS
+watch-list: not-filing-day-currentness
+coordination: active-codex-turn-only

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "aca-authority-row",
+  "title": "Authority currency row",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["citation", "status", "verified_as_of", "retrieval_source"],
+  "properties": {
+    "identifier": {"type": "string"},
+    "type": {"type": "string"},
+    "citation": {"type": "string", "minLength": 1},
+    "status": {
+      "enum": [
+        "current",
+        "amended",
+        "superseded",
+        "repealed",
+        "misapplied",
+        "factually-inaccurate",
+        "unverifiable"
+      ]
+    },
+    "treatment": {"type": "string"},
+    "basis": {"type": "string"},
+    "retrieval_source": {"type": "string", "minLength": 1},
+    "verified_as_of": {"type": "string", "minLength": 1},
+    "effective_date": {"type": ["string", "null"]},
+    "correction_note": {"type": ["string", "null"]}
+  }
+}

@@ -1,0 +1,1 @@
+The auditor is INSTALLED and RUNTIME-VERIFIED.

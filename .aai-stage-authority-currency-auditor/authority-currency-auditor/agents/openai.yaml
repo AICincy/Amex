@@ -1,0 +1,19 @@
+interface:
+  display_name: Authority Currency Auditor
+  short_description: Verify legal authorities are current and applied
+  default_prompt: Use $authority-currency-auditor to verify every legal authority
+    in this draft against current primary sources.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - codex
+  allow_implicit_invocation: true
+# Governor: aai-cognitive-interface. This skill is subordinate.
+# Implicit invocation is a host request, not activation proof.
+host:
+  governor: aai-cognitive-interface
+  persist_path: C:\\Users\\jared\\.codex\\skills\\authority-currency-auditor
+  validator: C:\\Users\\jared\\.codex\\skills\\aai-cognitive-interface\\scripts\\aai_runtime_gate.py
+  coordination: active-codex-turn-only
+# Host metadata is a local binding request, not proof of activation or installation.
