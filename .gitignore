@@ -7,4 +7,5 @@ automod-canon-receipt.json
 exa-*.json
 *.pem
 *.key
+__pycache__/
 .DS_Store
