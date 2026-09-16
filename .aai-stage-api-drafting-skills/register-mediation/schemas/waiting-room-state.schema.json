@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "waiting-room-state",
+  "title": "Waiting room parked state",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "objective",
+    "authorized_scope",
+    "last_completed_step",
+    "interrupt_type",
+    "intent_class",
+    "retry_used",
+    "live_action"
+  ],
+  "properties": {
+    "objective": {"type": "string", "minLength": 1},
+    "authorized_scope": {"type": "string"},
+    "last_completed_step": {"type": "string"},
+    "interrupt_type": {
+      "enum": ["refusal", "empty-return", "stall", "unknown"]
+    },
+    "intent_class": {"enum": ["CU", "BU", "BH", "CH"]},
+    "retry_used": {"type": "boolean"},
+    "live_action": {
+      "enum": ["pending", "executed", "blocked", "not-applicable"]
+    },
+    "blocker": {"type": ["string", "null"]},
+    "updated": {"type": ["string", "null"]}
+  }
+}

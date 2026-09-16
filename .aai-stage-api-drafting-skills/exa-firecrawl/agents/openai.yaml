@@ -1,0 +1,9 @@
+interface:
+  display_name: Exa Firecrawl
+  short_description: Authorized Exa discovery and Firecrawl retrieval under AAI
+  default_prompt: Use $exa-firecrawl for current web retrieval within my stated source scope.
+policy:
+  products:
+  - codex
+  allow_implicit_invocation: true
+# Governor: aai-cognitive-interface. Local host binding is not activation proof.

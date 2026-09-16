@@ -1,0 +1,14 @@
+interface:
+  display_name: EnformionGO API
+  short_description: Authorized EnformionGO HTTP searches under AAI
+  default_prompt: Governor is $aai-cognitive-interface. Use $enformion-go-api
+    as a subordinate. Call EnformionGO with local Access Profile secrets.
+    Re-fetch live docs. Do not print the profile. Do not self-govern.
+    Stop at an unauthorized billed search or exact blocker.
+policy:
+  products:
+  - codex
+  allow_implicit_invocation: true
+# Governor: aai-cognitive-interface. This skill is subordinate.
+# Implicit invocation is a host request, not activation proof.
+# Local host binding only. It does not prove installation or activation.

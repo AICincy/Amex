@@ -1,0 +1,5 @@
+0.2.1-remediation-2026-09-16
+content-identity: register-mediation
+governor: aai-cognitive-interface
+implements: waiting-room-register-rewrite
+does-not-implement: host-guardrail-bypass

@@ -1,0 +1,9 @@
+interface:
+  display_name: Speko API
+  short_description: Authorized Speko API operations under AAI
+  default_prompt: Use $speko-mcp for a specifically authorized Speko API operation.
+policy:
+  products:
+  - codex
+  allow_implicit_invocation: true
+# Governor: aai-cognitive-interface. Local host binding is not activation proof.

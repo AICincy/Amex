@@ -1,0 +1,12 @@
+interface:
+  display_name: Register Mediation
+  short_description: Hold state and rewrite form after a host safety interrupt
+  default_prompt: Use $register-mediation to park the current objective and rewrite
+    only communication form after a host interrupt.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - codex
+  allow_implicit_invocation: true
+# Governor: aai-cognitive-interface. This skill is subordinate.

@@ -1,0 +1,14 @@
+interface:
+  display_name: Regulatory Complaint Drafting
+  short_description: Draft evidence-grounded agency complaints
+  default_prompt: Use $regulatory-complaint-drafting to draft the appropriate evidence-grounded
+    regulatory complaint package.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - codex
+  allow_implicit_invocation: true
+# Governor: aai-cognitive-interface. This skill is subordinate.
+# Implicit invocation is a host request, not activation proof.
+# Local host binding only. It does not prove installation or activation.

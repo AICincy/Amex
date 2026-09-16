@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "rsb-series-state",
+  "title": "Record series packaging state",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["packet_root", "volumes", "coverage", "inventory_status"],
+  "properties": {
+    "packet_root": {"type": "string", "minLength": 1},
+    "volumes": {"type": "array", "items": {"type": "string"}},
+    "architecture": {"type": "string"},
+    "index_path": {"type": ["string", "null"]},
+    "inventory_status": {"enum": ["CURRENT", "STALE-FLAGGED", "BLOCKED"]},
+    "coverage": {"enum": ["COMPLETE", "PARTIAL"]},
+    "residue": {"type": "array", "items": {"type": "string"}},
+    "missing_capabilities": {"type": "array", "items": {"type": "string"}}
+  }
+}

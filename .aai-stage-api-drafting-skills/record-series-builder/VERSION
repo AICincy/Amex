@@ -1,0 +1,8 @@
+0.2.1-remediation-2026-09-16
+source-export: 2026-08-10
+content-identity: record-series-builder
+governor: aai-cognitive-interface
+implements: packet-series-packaging
+does-not-implement: typed-record-identity-layer
+claimable-status: STATIC-PASS-after-gate
+forbidden-unattested: SAVED INSTALLED RUNTIME-SMOKE-PASS RUNTIME-VERIFIED ADVERSARIAL-PASS

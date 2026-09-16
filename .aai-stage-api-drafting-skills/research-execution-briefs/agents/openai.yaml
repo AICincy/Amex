@@ -1,0 +1,14 @@
+interface:
+  display_name: Research Execution Briefs
+  short_description: Research current sources into decision briefs
+  default_prompt: Use $research-execution-briefs to research this question and return
+    a source-backed decision brief.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - codex
+  allow_implicit_invocation: true
+# Governor: aai-cognitive-interface. This skill is subordinate.
+# Implicit invocation is a host request, not activation proof.
+# Local host binding only. It does not prove installation or activation.

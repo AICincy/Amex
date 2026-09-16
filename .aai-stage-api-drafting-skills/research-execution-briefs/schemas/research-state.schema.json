@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "reb-research-state",
+  "title": "Research execution state",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "question",
+    "claims",
+    "temporal_cutoff",
+    "completion_condition",
+    "coverage",
+    "findings",
+    "uncertainty",
+    "failed_routes"
+  ],
+  "properties": {
+    "question": {"type": "string", "minLength": 1},
+    "claims": {"type": "array", "items": {"type": "string"}},
+    "temporal_cutoff": {"type": ["string", "null"]},
+    "decision_context": {"type": "string"},
+    "completion_condition": {"type": "string", "minLength": 1},
+    "matter_file": {"type": ["string", "null"]},
+    "coverage": {"enum": ["COMPLETE", "PARTIAL"]},
+    "findings": {"type": "array", "items": {"type": "string"}},
+    "uncertainty": {"type": "array", "items": {"type": "string"}},
+    "failed_routes": {"type": "array", "items": {"type": "string"}}
+  }
+}

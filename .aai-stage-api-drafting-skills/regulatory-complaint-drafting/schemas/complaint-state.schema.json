@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "rcd-complaint-state",
+  "title": "Regulatory complaint domain state",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "forum",
+    "jurisdiction",
+    "evidence_state",
+    "submission_state"
+  ],
+  "properties": {
+    "forum": {"type": "string", "minLength": 1},
+    "jurisdiction": {"type": "string", "minLength": 1},
+    "complainant_relationship": {"type": "string"},
+    "factual_chronology": {"type": "string"},
+    "evidence_state": {"enum": ["supported", "partial", "missing"]},
+    "disputed_propositions": {"type": "array", "items": {"type": "string"}},
+    "current_authority": {"enum": ["verified-this-session", "stale-table", "missing"]},
+    "prior_resolution_attempts": {"type": "array", "items": {"type": "string"}},
+    "procedural_requirements": {"type": "array", "items": {"type": "string"}},
+    "requested_action": {"type": "string"},
+    "available_remedies": {"type": "array", "items": {"type": "string"}},
+    "attachments": {"type": "array", "items": {"type": "string"}},
+    "submission_state": {"enum": ["DRAFT", "PROVISIONAL", "FINAL-DRAFT", "SUBMITTED"]},
+    "filing_blocker": {"type": ["string", "null"]}
+  }
+}

@@ -1,0 +1,14 @@
+interface:
+  display_name: Resend API
+  short_description: Authorized Resend HTTP routes under AAI
+  default_prompt: Governor is $aai-cognitive-interface. Use $resend-api
+    as a subordinate. Send or inspect Resend mail with local secrets.
+    Run scripts in the same turn as other loaded skills. Do not print
+    the key. Do not self-govern. Stop at an unauthorized send or exact blocker.
+policy:
+  products:
+  - codex
+  allow_implicit_invocation: true
+# Governor: aai-cognitive-interface. This skill is subordinate.
+# Implicit invocation is a host request, not activation proof.
+# Local host binding only. It does not prove installation or activation.

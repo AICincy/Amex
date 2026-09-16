@@ -1,0 +1,14 @@
+interface:
+  display_name: CourtListener API
+  short_description: Free CourtListener REST v4 court-record routes under AAI
+  default_prompt: Governor is $aai-cognitive-interface. Use $courtlistener-api
+    as a subordinate. Search CourtListener opinions and RECAP dockets.
+    Token optional. Do not print the token. Do not self-govern.
+    Empty result is coverage miss, not a clean rap sheet.
+policy:
+  products:
+  - codex
+  allow_implicit_invocation: true
+# Governor: aai-cognitive-interface. This skill is subordinate.
+# Implicit invocation is a host request, not activation proof.
+# Local host binding only. It does not prove installation or activation.

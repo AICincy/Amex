@@ -1,0 +1,13 @@
+interface:
+  display_name: Dify Agent API
+  short_description: Dify Cloud Agent Service API under AAI
+  default_prompt: Governor is $aai-cognitive-interface. Use $dify-agent-api
+    as a subordinate. Call Dify Agent Service API with local secrets.
+    Stream only. Do not print the key. Do not self-govern.
+policy:
+  products:
+  - codex
+  allow_implicit_invocation: true
+# Governor: aai-cognitive-interface. This skill is subordinate.
+# Implicit invocation is a host request, not activation proof.
+# Local host binding only. It does not prove installation or activation.

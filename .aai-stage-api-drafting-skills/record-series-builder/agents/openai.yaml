@@ -1,0 +1,14 @@
+interface:
+  display_name: Record Series Builder
+  short_description: Normalize large document sets into matched series
+  default_prompt: Use $record-series-builder to organize these documents into a consistent
+    multi-volume series.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - codex
+  allow_implicit_invocation: true
+# Governor: aai-cognitive-interface. This skill is subordinate.
+# Implicit invocation is a host request, not activation proof.
+# Local host binding only. It does not prove installation or activation.
